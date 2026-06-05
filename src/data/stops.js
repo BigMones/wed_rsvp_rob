@@ -1,0 +1,68 @@
+export const STOPS = [
+  {
+    id: 1, name: 'Sydney', country: { it: 'Australia', en: 'Australia' },
+    lng: 151.21, lat: -33.87,
+    it: 'Si sono conosciuti in Italia, ma fin dal primo giorno condividevano lo stesso sogno. Il primo messaggio che si sono scambiati parlava proprio di lei: Sydney. Ancora prima di sapere che si stavano scegliendo per sempre, avevano già scelto insieme un posto nel mondo.',
+    en: 'They met in Italy, but from the very first day they shared the same dream. Their very first message was already about it: Sydney. Even before they knew they were choosing each other forever, they had already chosen a place in the world together.',
+  },
+  {
+    id: 2, name: 'Tasmania', country: { it: 'Australia', en: 'Australia' },
+    lng: 147.33, lat: -42.88,
+    it: 'Sono arrivati per celebrare l\'amore dei loro amici, il primo matrimonio vissuto insieme. In quella piccola isola selvaggia hanno iniziato a sentire che anche il loro momento stava lentamente prendendo forma.',
+    en: 'They travelled there to celebrate their friends\' love, their first wedding experienced together. On that wild little island, they began to feel that their own moment was quietly finding its way.',
+  },
+  {
+    id: 3, name: 'Indonesia', country: { it: 'Indonesia', en: 'Indonesia' },
+    lng: 115.09, lat: -8.34,
+    it: 'Una pausa necessaria. Un viaggio che li ha purificati. Tra templi e discrezione, in un luogo che non lasciava spazio al loro amore, hanno imparato a nascondersi dietro un sorriso: fratelli per il mondo, complici in segreto, amore per sempre.',
+    en: 'A necessary pause. A journey that cleansed them. Among temples and quiet discretion, in a place that left no room for their love, they learned to hide behind a smile: brothers to the world, accomplices in secret, love forever.',
+  },
+  {
+    id: 4, name: 'Filippine', country: { it: 'Filippine', en: 'Philippines' },
+    lng: 119.41, lat: 11.20,
+    it: 'Tra natura selvaggia e acque cristalline, il loro amore ha potuto respirare libero. Tra avventure e meraviglia, hanno celebrato la vita — e il compleanno di Antonio — in una suite sospesa tra sogno e realtà. Un viaggio che li ha uniti ancora di più, rendendo ogni istante indimenticabile.',
+    en: 'Among wild nature and crystal-clear waters, their love could finally breathe freely. Between adventure and wonder, they celebrated life — and Antonio\'s birthday — in a suite suspended between dream and reality. A journey that brought them even closer, turning every moment into something unforgettable.',
+  },
+  {
+    id: 5, name: 'U.S.A.', country: { it: 'Stati Uniti', en: 'United States' },
+    lng: -115.14, lat: 36.17,
+    it: 'Un viaggio condiviso, tra famiglia e sogni. Il compleanno di Roberto, luci, spettacoli e avventura. Alcuni sogni si sono realizzati, altri hanno solo cambiato forma — ma tutti hanno reso quel viaggio indimenticabile.',
+    en: 'A journey shared with family and dreams. Roberto\'s birthday, lights, shows, and adventure. Some dreams came true, others simply took a different shape — but all of them made this trip unforgettable.',
+  },
+  {
+    id: 6, name: 'Monaco di Baviera', country: { it: 'Germania', en: 'Germany' },
+    lng: 11.58, lat: 48.14,
+    it: 'Tra birra, risate e musica, un viaggio vissuto insieme senza pensieri. Eppure Antonio, nel suo modo silenzioso, stava già tracciando la strada: credeva così tanto nell\'amore da volerlo vedere nascere anche negli altri. Proprio lì, sotto le note di Adele, è arrivata una richiesta speciale: essere testimoni di un amore pronto a diventare promessa.',
+    en: 'Between beer, laughter, and music, it was a journey lived together without a care. And yet, in his quiet way, Antonio was already paving the path: he believed in love so deeply that he wanted to see it blossom in others. Right there, beneath the notes of Adele, a special request arrived: to be witnesses to a love ready to become a promise.',
+  },
+  {
+    id: 7, name: 'Parigi', country: { it: 'Francia', en: 'France' },
+    lng: 2.35, lat: 48.86,
+    it: 'La città dell\'amore. Per Roberto era sempre stato un sogno: vivere Parigi con la persona che amava. Antonio ha costruito tutto in silenzio, passo dopo passo. Solo in aeroporto Roberto ha scoperto la destinazione — un biglietto bruciato, poche parole: «tout commence à…». E da lì, la magia: un sogno che ha preso vita tra le luci di Disneyland.',
+    en: 'The city of love. For Roberto, it had always been a dream: to experience Paris with the person he loved. Antonio built everything in silence, step by step. Only at the airport did Roberto discover the destination — a burned note, just a few words: \'tout commence à…\'. And from there, magic: a dream coming to life among the lights of Disneyland.',
+  },
+  {
+    id: 8, name: 'Canarie', country: { it: 'Spagna', en: 'Spain' },
+    lng: -16.63, lat: 28.29,
+    it: 'Roberto ha portato Antonio nei luoghi che un tempo chiamava casa, tra ricordi, amicizie e nuove emozioni. È stato il loro primo viaggio insieme, quello che ha dato inizio a tutto. E proprio lì, tra sole e libertà, hanno festeggiato il compleanno di Antonio, intrecciando passato e futuro nello stesso orizzonte.',
+    en: 'Roberto took Antonio to the places he once called home, among memories, friendships, and new emotions. It was their first trip together, the one that started it all. And right there, between sunshine and freedom, they celebrated Antonio\'s birthday, weaving past and future into the same horizon.',
+  },
+  {
+    id: 9, name: 'Edimburgo', country: { it: 'Scozia', en: 'Scotland' },
+    lng: -3.19, lat: 55.95,
+    it: 'Un gesto per ricambiare, un viaggio pensato con il cuore. Roberto ha scelto Edimburgo per regalare ad Antonio qualcosa di davvero suo, un luogo capace di parlare alla sua anima. Tra freddo, strade incantate e storie misteriose, hanno vissuto un\'esperienza sospesa tra realtà e magia.',
+    en: 'A gesture to give back, a journey shaped by the heart. Roberto chose Edinburgh to gift Antonio something truly his own — a place that could speak to his soul. Among the cold, enchanted streets, and mysterious stories, they lived an experience suspended between reality and magic.',
+  },
+  {
+    id: 10, name: 'Londra', country: { it: 'Inghilterra', en: 'England' },
+    lng: -0.13, lat: 51.51,
+    it: 'La città della nostra prima casa insieme. Qui il nostro amore è cresciuto, giorno dopo giorno, tra vita quotidiana e sogni condivisi. È qui che abbiamo scelto di restare insieme, ovunque, e poi, poco dopo, per sempre.',
+    en: 'The city of our first home together. Here our love grew, day by day, through everyday life and shared dreams. It is here that we chose to stay together, anywhere, and soon after, forever.',
+  },
+  {
+    id: 11, name: 'Napoli', country: { it: 'Italia', en: 'Italy' },
+    lng: 14.27, lat: 40.85, final: true,
+    it: 'Dove tutto è iniziato. La città in cui ci siamo conosciuti, ci siamo innamorati e abbiamo scelto di cambiare le nostre vite per sempre. È da qui che è partito il nostro viaggio, ed è qui che ci ha sempre riportato — il luogo in cui abbiamo scelto di dirci il nostro sì.',
+    en: 'Where it all began. The city where we met, fell in love, and chose to change our lives forever. This is where our journey started, and where it has always led us back — the place where we chose to say \'I do\'.',
+  },
+]

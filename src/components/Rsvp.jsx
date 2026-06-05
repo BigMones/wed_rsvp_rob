@@ -1,0 +1,139 @@
+import { useState } from 'react'
+import { useLang } from '../context/LangContext.jsx'
+import { useReveal } from '../hooks/useReveal.js'
+
+export default function Rsvp() {
+  const { lang } = useLang()
+  const t = (it, en) => lang === 'it' ? it : en
+  const [sent, setSent] = useState(false)
+  const [success, setSuccess] = useState({ icon: '✈', title: '', text: '' })
+  const headRef = useReveal()
+  const passRef = useReveal()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const name = (form.querySelector('[name=name]').value || '').trim()
+    const going = form.querySelector('[name=going]:checked')
+    const yes = going && going.value === 'yes'
+
+    setSuccess({
+      icon: yes ? '✈' : '☁',
+      title: yes
+        ? t('Sei a bordo!', "You're on board!")
+        : t('Ci mancherai', "We'll miss you"),
+      text: yes
+        ? (name ? name + ', ' : '') + t(
+            'il tuo posto è riservato. Non vediamo l\'ora di festeggiare insieme.',
+            "your seat is reserved. We can't wait to celebrate together."
+          )
+        : t(
+            'Grazie per avercelo fatto sapere. Sarai con noi nel pensiero.',
+            "Thank you for letting us know. You'll be with us in spirit."
+          ),
+    })
+    setSent(true)
+  }
+
+  return (
+    <section className="section rsvp" id="rsvp">
+      <div className="wrap">
+        <div className="sec-head reveal" ref={headRef}>
+          <span className="kicker">{t('Sali a bordo con noi?', 'Are you boarding with us?')}</span>
+          <h2>
+            {t('Conferma la tua ', 'Confirm your ')}
+            <em>{t('presenza', 'presence')}</em>
+          </h2>
+        </div>
+        <p className="lead reveal">
+          {t(
+            'Non vediamo l\'ora di vivere questo nuovo capitolo insieme a voi. Vi chiediamo di confermare la vostra presenza prima del decollo.',
+            "We can't wait to travel this new chapter with you. Please confirm your presence before we take off."
+          )}
+        </p>
+
+        <form className={`pass reveal${sent ? ' sent' : ''}`} ref={passRef} onSubmit={handleSubmit} autoComplete="off">
+          <div className="pass-main">
+            <div className="pass-top">
+              <span>Boarding Pass · A&amp;R</span>
+              <span>{t('Volo AR · 2026', 'Flight AR · 2026')}</span>
+            </div>
+            <div className="pass-row">
+              <div className="field">
+                <label>{t('Nome e cognome', 'Full name')}</label>
+                <input type="text" name="name" required />
+              </div>
+              <div className="field">
+                <label>{t('Numero di ospiti', 'Number of guests')}</label>
+                <select name="guests">
+                  <option>1</option><option>2</option><option>3</option>
+                  <option>4</option><option>5+</option>
+                </select>
+              </div>
+            </div>
+            <div className="field" style={{ marginBottom: 18 }}>
+              <label>{t('Ci sarai?', 'Will you be there?')}</label>
+              <div className="choice">
+                <label>
+                  <input type="radio" name="going" value="yes" required />
+                  <span className="opt">{t('Ci sarò ✓', "I'll be there ✓")}</span>
+                </label>
+                <label>
+                  <input type="radio" name="going" value="no" />
+                  <span className="opt no">{t('Perderò questo volo', 'Missing this flight')}</span>
+                </label>
+              </div>
+            </div>
+            <div className="field">
+              <label>{t('Note (intolleranze, canzone del cuore…)', 'Notes (dietary needs, your song…)')}</label>
+              <textarea name="notes" />
+            </div>
+            <button type="submit" className="pass-submit">
+              {t('Conferma — Sali a bordo', 'Confirm — Board now')}
+            </button>
+          </div>
+
+          <aside className="pass-stub">
+            <div>
+              <div className="st-top">Boarding Pass</div>
+              <div className="st-big">A &amp; R</div>
+            </div>
+            <div className="st-grid">
+              <div>
+                <div className="l">{t('Volo', 'Flight')}</div>
+                <div className="v">AR 2026</div>
+              </div>
+              <div>
+                <div className="l">{t('Da → A', 'From → To')}</div>
+                <div className="v">{t('Napoli → Per sempre', 'Naples → Forever')}</div>
+              </div>
+              <div>
+                <div className="l">{t('Data', 'Date')}</div>
+                <div className="v">20·09·26</div>
+              </div>
+              <div>
+                <div className="l">{t('Imbarco', 'Boarding')}</div>
+                <div className="v">11:30</div>
+              </div>
+            </div>
+            <div className="barcode" />
+          </aside>
+
+          <div className="pass-success" id="successMsg">
+            <div className="plane">{success.icon}</div>
+            <h3>{success.title}</h3>
+            <p>{success.text}</p>
+          </div>
+        </form>
+
+        <div className="deadline reveal">
+          {t(
+            'Scadenza · vi preghiamo di confermare entro il ',
+            'Deadline · please confirm by '
+          )}
+          <b>{t('20 Agosto 2026', '20 August 2026')}</b>
+        </div>
+      </div>
+    </section>
+  )
+}
