@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antonio & Roberto · 20.09.2026</title>
+<meta name="description" content="Ogni storia d'amore è un viaggio. Antonio & Roberto — 20 Settembre 2026, Napoli.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Marcellus&family=Jost:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/site.css">
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <a class="brand" href="#top">Antonio <span class="plane">✈</span> Roberto</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#journey" data-it="La storia" data-en="The story">La storia</a>
+      <a href="#details" data-it="Dettagli" data-en="Details">Dettagli</a>
+      <a href="#location" data-it="Location" data-en="Location">Location</a>
+      <a href="#info" data-it="Info" data-en="Info">Info</a>
+      <a href="#rsvp" data-it="RSVP" data-en="RSVP">RSVP</a>
+    </div>
+    <div class="lang">
+      <button data-lang="it" class="active">IT</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- mobile sheet -->
+<div class="sheet" id="sheet">
+  <button class="close" id="sheetClose" aria-label="Chiudi">✕</button>
+  <a href="#journey" data-it="La storia" data-en="The story">La storia</a>
+  <a href="#details" data-it="Dettagli" data-en="Details">Dettagli</a>
+  <a href="#location" data-it="Location" data-en="Location">Location</a>
+  <a href="#info" data-it="Info" data-en="Info">Info</a>
+  <a href="#rsvp" data-it="RSVP" data-en="RSVP">RSVP</a>
+</div>
+
+<div class="layer" id="top">
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <svg class="hero-routes" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
+    <path d="M-40 640 C 300 560, 460 760, 760 600 S 1180 420, 1500 540" stroke="oklch(0.52 0.062 150)" stroke-width="1.4" stroke-dasharray="3 8" opacity=".5"/>
+    <path d="M-40 240 C 360 360, 560 120, 900 260 S 1240 380, 1500 240" stroke="oklch(0.52 0.062 150)" stroke-width="1.4" stroke-dasharray="3 8" opacity=".35"/>
+  </svg>
+  <div class="kicker pre" data-it="— Imbarco · 20 Settembre 2026 —" data-en="— Now boarding · 20 September 2026 —">— Imbarco · 20 Settembre 2026 —</div>
+  <h1>Antonio <span class="amp">&</span> Roberto</h1>
+  <p class="tag" data-it="Ogni storia d'amore è un viaggio. Inizia il nostro." data-en="Every love story is a journey. Start ours.">Ogni storia d'amore è un viaggio. Inizia il nostro.</p>
+  <div class="meta">
+    <div class="col"><div class="it" data-it="Data" data-en="Date">Data</div><div class="vl" data-it="20 Settembre 2026" data-en="20 September 2026">20 Settembre 2026</div></div>
+    <div class="col"><div class="it" data-it="Luogo" data-en="Place">Luogo</div><div class="vl">Bacoli · Napoli</div></div>
+    <div class="col"><div class="it" data-it="Cerimonia" data-en="Ceremony">Cerimonia</div><div class="vl">11:30</div></div>
+  </div>
+  <a class="scrolldown" href="#countdown">
+    <span data-it="Scorri" data-en="Scroll">Scorri</span>
+    <span class="ln"></span>
+  </a>
+</header>
+
+<!-- ===================== COUNTDOWN ===================== -->
+<section class="section countdown" id="countdown">
+  <div class="wrap center">
+    <div class="kicker reveal" data-it="Manca poco al decollo" data-en="Counting down to take-off">Manca poco al decollo</div>
+    <div class="rule"></div>
+    <div class="cd-grid reveal d1">
+      <div class="cd-unit"><div class="num" id="cd-d">00</div><div class="lab" data-it="Giorni" data-en="Days">Giorni</div></div>
+      <div class="cd-sep">·</div>
+      <div class="cd-unit"><div class="num" id="cd-h">00</div><div class="lab" data-it="Ore" data-en="Hours">Ore</div></div>
+      <div class="cd-sep">·</div>
+      <div class="cd-unit"><div class="num" id="cd-m">00</div><div class="lab" data-it="Minuti" data-en="Minutes">Minuti</div></div>
+      <div class="cd-sep">·</div>
+      <div class="cd-unit"><div class="num" id="cd-s">00</div><div class="lab" data-it="Secondi" data-en="Seconds">Secondi</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JOURNEY ===================== -->
+<section class="section journey" id="journey">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-it="11 tappe · un'unica destinazione" data-en="11 stops · one destination">11 tappe · un'unica destinazione</span>
+      <h2 data-it-html="Il nostro <em>viaggio</em>" data-en-html="Our <em>journey</em>">Il nostro <em>viaggio</em></h2>
+    </div>
+
+    <!-- desktop: atlas -->
+    <div class="atlas reveal">
+      <div class="atlas-stage-wrap">
+        <div class="atlas-stage" id="atlasStage">
+          <div class="atlas-frame"></div>
+          <div class="atlas-hint" data-it="Clicca una tappa per leggere la storia" data-en="Click a stop to read the story">Clicca una tappa per leggere la storia</div>
+        </div>
+      </div>
+      <div class="atlas-panel" id="atlasPanel">
+        <div class="ap-photo">
+          <span class="lab"></span>
+          <div class="stamp"></div>
+        </div>
+        <div class="ap-meta">
+          <span class="ap-num"></span>
+          <span class="ap-country"></span>
+        </div>
+        <h3 class="ap-name"></h3>
+        <p class="ap-text"></p>
+        <div class="ap-nav">
+          <button class="ap-btn" id="apPrev"><span>←</span><span> Precedente</span></button>
+          <button class="ap-btn" id="apNext"><span>Successiva </span><span>→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile: timeline -->
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- ===================== DETAILS ===================== -->
+<section class="section details" id="details">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-it="Il grande giorno" data-en="The big day">Il grande giorno</span>
+      <h2 data-it-html="Dove &amp; <em>quando</em>" data-en-html="Where &amp; <em>when</em>">Dove &amp; <em>quando</em></h2>
+    </div>
+    <div class="det-grid reveal">
+      <div class="det-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 data-it="Quando" data-en="When">Quando</h3>
+        <div class="big" data-it-html="Domenica<br>20 Settembre 2026" data-en-html="Sunday<br>20 September 2026">Domenica<br>20 Settembre 2026</div>
+        <div class="small" data-it-html="Cerimonia ore 11:30<br>Ricevimento ore 13:30" data-en-html="Ceremony 11:30<br>Reception 13:30">Cerimonia ore 11:30<br>Ricevimento ore 13:30</div>
+      </div>
+      <div class="det-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
+        <h3 data-it="Dove" data-en="Where">Dove</h3>
+        <div class="big">Punta Romana</div>
+        <div class="small" data-it-html="Via Spiaggia Romana<br>80070 Bacoli (NA), Italia" data-en-html="Via Spiaggia Romana<br>80070 Bacoli (NA), Italy">Via Spiaggia Romana<br>80070 Bacoli (NA), Italia</div>
+      </div>
+      <div class="det-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3l8 8-8 8-8-8z"/></svg></div>
+        <h3 data-it="Dress code" data-en="Dress code">Dress code</h3>
+        <div class="big" data-it-html="Elegante<br>Summer Chic" data-en-html="Elegant<br>Summer Chic">Elegante<br>Summer Chic</div>
+        <div class="small" data-it="Toni chiari e tessuti leggeri, pronti per il sole di settembre." data-en="Light tones and breezy fabrics, ready for the September sun.">Toni chiari e tessuti leggeri, pronti per il sole di settembre.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOCATION ===================== -->
+<section class="section location" id="location">
+  <div class="wrap loc-grid">
+    <div class="loc-map reveal">
+      <div class="water"></div>
+      <div class="pinmark"><div class="head"></div><div class="lbl">Punta Romana</div></div>
+      <div class="ph-note" data-it="mappa · placeholder" data-en="map · placeholder">mappa · placeholder</div>
+    </div>
+    <div class="loc-info reveal d1">
+      <span class="eyebrow" data-it="Come arrivare" data-en="Getting there">Come arrivare</span>
+      <h2 data-it-html="Sul golfo, dove<br>il mare incontra <em>Napoli</em>" data-en-html="On the gulf, where<br>the sea meets <em>Naples</em>">Sul golfo, dove<br>il mare incontra <em>Napoli</em></h2>
+      <div class="loc-addr">Punta Romana<br>Via Spiaggia Romana<br>80070 Bacoli (NA)</div>
+      <p data-it="A Bacoli, nel cuore dei Campi Flegrei, a circa 40 minuti d'auto dal centro di Napoli e dall'aeroporto di Capodichino. Ampio parcheggio disponibile in loco." data-en="In Bacoli, in the heart of the Campi Flegrei, about a 40-minute drive from central Naples and Capodichino airport. Ample parking available on site.">A Bacoli, nel cuore dei Campi Flegrei, a circa 40 minuti d'auto dal centro di Napoli e dall'aeroporto di Capodichino. Ampio parcheggio disponibile in loco.</p>
+      <a class="btn-line" href="https://maps.google.com/?q=Punta+Romana+Bacoli" target="_blank" rel="noopener" data-it="Apri in Google Maps →" data-en="Open in Google Maps →">Apri in Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INFO ===================== -->
+<section class="section info" id="info">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-it="Prima di partire" data-en="Before you go">Prima di partire</span>
+      <h2 data-it-html="Info <em>pratiche</em>" data-en-html="Good to <em>know</em>">Info <em>pratiche</em></h2>
+    </div>
+    <p class="info-lead reveal" data-it="Prima di unirvi a noi in questo viaggio, ecco tutto ciò che c'è da sapere." data-en="Before you join us on this journey, here's everything you need to know.">Prima di unirvi a noi in questo viaggio, ecco tutto ciò che c'è da sapere.</p>
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <div class="n">01</div>
+        <h3 data-it="Meteo & ambientazione" data-en="Weather & setting">Meteo & ambientazione</h3>
+        <p data-it="A settembre, a Napoli, il clima è solitamente caldo e soleggiato, con una leggera brezza marina. La cerimonia e parte del ricevimento si svolgeranno all'aperto." data-en="September in Naples is usually warm and sunny, with a gentle sea breeze. The ceremony and part of the reception will take place outdoors.">A settembre, a Napoli, il clima è solitamente caldo e soleggiato, con una leggera brezza marina. La cerimonia e parte del ricevimento si svolgeranno all'aperto.</p>
+      </div>
+      <div class="info-card reveal d1">
+        <div class="n">02</div>
+        <h3 data-it="Consigli di viaggio" data-en="Travel tips">Consigli di viaggio</h3>
+        <ul>
+          <li data-it="Portate occhiali da sole e magari uno strato leggero per la sera." data-en="Bring sunglasses and maybe a light layer for the evening.">Portate occhiali da sole e magari uno strato leggero per la sera.</li>
+          <li data-it="Evitate tacchi troppo sottili se camminate su superfici naturali." data-en="Avoid very thin heels if walking on natural surfaces.">Evitate tacchi troppo sottili se camminate su superfici naturali.</li>
+          <li data-it="Venite pronti a godervi buon cibo, sole e tanto amore." data-en="Come ready to enjoy good food, sunshine, and lots of love.">Venite pronti a godervi buon cibo, sole e tanto amore.</li>
+        </ul>
+      </div>
+      <div class="info-card reveal d2">
+        <div class="n">03</div>
+        <h3 data-it="Una piccola nota" data-en="A little note">Una piccola nota</h3>
+        <p data-it="Napoli è vibrante, autentica e piena di vita. Prendetevi il tempo per esplorare, assaporare e godervi ogni momento del vostro soggiorno." data-en="Naples is vibrant, authentic, and full of life. Take your time to explore, taste, and enjoy every moment of your stay.">Napoli è vibrante, autentica e piena di vita. Prendetevi il tempo per esplorare, assaporare e godervi ogni momento del vostro soggiorno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REGISTRY ===================== -->
+<section class="section registry" id="registry">
+  <div class="wrap reg-inner reveal">
+    <div class="plane">✈</div>
+    <h2 data-it-html="La nostra prossima <em>destinazione</em>" data-en-html="Our next <em>destination</em>">La nostra prossima <em>destinazione</em></h2>
+    <p data-it="La vostra presenza è il regalo più grande che potessimo desiderare." data-en="Your presence is the greatest gift we could ask for.">La vostra presenza è il regalo più grande che potessimo desiderare.</p>
+    <p data-it="Ma se vorrete contribuire, potrete aiutarci a creare nuovi ricordi durante il nostro viaggio di nozze ed essere parte della nostra prossima avventura." data-en="But if you wish to contribute, you can help us create new memories on our honeymoon and be part of our next adventure.">Ma se vorrete contribuire, potrete aiutarci a creare nuovi ricordi durante il nostro viaggio di nozze ed essere parte della nostra prossima avventura.</p>
+    <div class="reg-card">
+      <span class="lab" data-it="Viaggio di nozze · IBAN" data-en="Honeymoon fund · IBAN">Viaggio di nozze · IBAN</span>
+      <span class="iban">IT00 X000 0000 0000 0000 0000 000</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="section gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-it="Istantanee" data-en="Snapshots">Istantanee</span>
+      <h2 data-it-html="Frammenti di <em>noi</em>" data-en-html="Fragments of <em>us</em>">Frammenti di <em>noi</em></h2>
+    </div>
+    <div class="gal-grid reveal">
+      <div class="gal-item wide tall"><span class="lab">foto · 16:10</span></div>
+      <div class="gal-item"><span class="lab">foto</span></div>
+      <div class="gal-item"><span class="lab">foto</span></div>
+      <div class="gal-item tall"><span class="lab">foto · ritratto</span></div>
+      <div class="gal-item"><span class="lab">foto</span></div>
+      <div class="gal-item wide"><span class="lab">foto · panorama</span></div>
+      <div class="gal-item"><span class="lab">foto</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RSVP ===================== -->
+<section class="section rsvp" id="rsvp">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-it="Sali a bordo con noi?" data-en="Are you boarding with us?">Sali a bordo con noi?</span>
+      <h2 data-it-html="Conferma la tua <em>presenza</em>" data-en-html="Confirm your <em>presence</em>">Conferma la tua <em>presenza</em></h2>
+    </div>
+    <p class="lead reveal" data-it="Non vediamo l'ora di vivere questo nuovo capitolo insieme a voi. Vi chiediamo di confermare la vostra presenza prima del decollo." data-en="We can't wait to travel this new chapter with you. Please confirm your presence before we take off.">Non vediamo l'ora di vivere questo nuovo capitolo insieme a voi. Vi chiediamo di confermare la vostra presenza prima del decollo.</p>
+
+    <form class="pass reveal" id="rsvpForm" autocomplete="off">
+      <div class="pass-main">
+        <div class="pass-top">
+          <span>Boarding Pass · A&R</span>
+          <span data-it="Volo AR · 2026" data-en="Flight AR · 2026">Volo AR · 2026</span>
+        </div>
+        <div class="pass-row">
+          <div class="field">
+            <label data-it="Nome e cognome" data-en="Full name">Nome e cognome</label>
+            <input type="text" name="name" required>
+          </div>
+          <div class="field">
+            <label data-it="Numero di ospiti" data-en="Number of guests">Numero di ospiti</label>
+            <select name="guests">
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:18px;">
+          <label data-it="Ci sarai?" data-en="Will you be there?">Ci sarai?</label>
+          <div class="choice">
+            <label><input type="radio" name="going" value="yes" required><span class="opt" data-it="Ci sarò ✓" data-en="I'll be there ✓">Ci sarò ✓</span></label>
+            <label><input type="radio" name="going" value="no"><span class="opt no" data-it="Perderò questo volo" data-en="Missing this flight">Perderò questo volo</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label data-it="Note (intolleranze, canzone del cuore…)" data-en="Notes (dietary needs, your song…)">Note (intolleranze, canzone del cuore…)</label>
+          <textarea name="notes"></textarea>
+        </div>
+        <button type="submit" class="pass-submit" id="passSubmit" data-it="Conferma — Sali a bordo" data-en="Confirm — Board now">Conferma — Sali a bordo</button>
+      </div>
+      <aside class="pass-stub">
+        <div>
+          <div class="st-top">Boarding Pass</div>
+          <div class="st-big">A &amp; R</div>
+        </div>
+        <div class="st-grid">
+          <div><div class="l" data-it="Volo" data-en="Flight">Volo</div><div class="v">AR 2026</div></div>
+          <div><div class="l" data-it="Da → A" data-en="From → To">Da → A</div><div class="v" data-it="Napoli → Per sempre" data-en="Naples → Forever">Napoli → Per sempre</div></div>
+          <div><div class="l" data-it="Data" data-en="Date">Data</div><div class="v">20·09·26</div></div>
+          <div><div class="l" data-it="Imbarco" data-en="Boarding">Imbarco</div><div class="v">11:30</div></div>
+        </div>
+        <div class="barcode"></div>
+      </aside>
+
+      <div class="pass-success" id="successMsg">
+        <div class="plane">✈</div>
+        <h3></h3>
+        <p></p>
+      </div>
+    </form>
+
+    <div class="deadline reveal" data-it-html="Scadenza · vi preghiamo di confermare entro il <b>20 Agosto 2026</b>" data-en-html="Deadline · please confirm by <b>20 August 2026</b>">Scadenza · vi preghiamo di confermare entro il <b>20 Agosto 2026</b></div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="mono">Antonio <span class="amp">&</span> Roberto</div>
+  <div class="sub" data-it="La vostra presenza significa tutto per noi." data-en="Your presence means the world to us.">La vostra presenza significa tutto per noi.</div>
+  <div class="date">Bacoli · Napoli — 20 · 09 · 2026</div>
+</footer>
+
+</div><!-- /layer -->
+
+<script src="site/site.js"></script>
+</body>
+</html>

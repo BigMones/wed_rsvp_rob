@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antonio & Roberto — Direzioni di Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Marcellus&family=Jost:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#f6f1e8;
+    --sand:#ece3d4;
+    --beige:#ddd0bb;
+    --ink:#2c2824;
+    --ink-soft:#5c554b;
+    --line:#cbbfa9;
+    --page:#e7e1d6;
+    --navy:oklch(0.42 0.055 250);
+    --terra:oklch(0.60 0.13 42);
+    --sage:oklch(0.52 0.06 150);
+    --serif:"Cormorant Garamond",serif;
+    --class:"Marcellus",serif;
+    --sans:"Jost",sans-serif;
+    --mono:"Space Mono",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background:var(--page);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:72px 40px 120px;}
+
+  /* ---- intro ---- */
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);}
+  .intro h1{font-family:var(--serif);font-weight:400;font-size:clamp(42px,6vw,76px);line-height:1.02;margin:18px 0 8px;letter-spacing:.01em;}
+  .intro h1 em{font-style:italic;}
+  .intro .sub{font-family:var(--class);font-size:20px;color:var(--ink-soft);letter-spacing:.04em;}
+  .rationale{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;border-top:1px solid var(--line);padding-top:28px;}
+  .rationale h4{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px;}
+  .rationale p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+  /* ---- direction blocks ---- */
+  .dir{margin-top:96px;}
+  .dir-head{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:34px;}
+  .dir-num{font-family:var(--mono);font-size:13px;color:var(--ink-soft);letter-spacing:.2em;}
+  .dir-head h2{font-family:var(--serif);font-weight:500;font-size:40px;margin:0;line-height:1;}
+  .dir-head .tag{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);}
+  .dir-desc{max-width:760px;font-size:16px;line-height:1.65;color:var(--ink-soft);margin:-12px 0 34px;}
+  .dir-desc strong{color:var(--ink);font-weight:400;}
+
+  .showcase{display:flex;gap:34px;align-items:flex-start;flex-wrap:wrap;}
+  .col-desktop{flex:1 1 620px;min-width:0;}
+  .col-mobile{flex:0 0 auto;}
+  .frame-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .frame-label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent,var(--ink));}
+
+  /* browser chrome */
+  .browser{border-radius:12px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(44,40,36,.45),0 0 0 1px rgba(44,40,36,.06);background:#fff;}
+  .browser-bar{height:38px;background:#efe9de;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid #e2dac9;}
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .dot.r{background:#dcb4a6;}.dot.y{background:#e3cf9f;}.dot.g{background:#bcc7a8;}
+  .browser-url{margin-left:14px;font-family:var(--mono);font-size:11px;color:#9a9082;background:#fff;border-radius:6px;padding:5px 14px;flex:1;max-width:340px;}
+  .viewport{position:relative;overflow:hidden;background:var(--ivory);}
+  .scaled{transform-origin:top left;}
+
+  /* phone chrome */
+  .phone{width:266px;border-radius:38px;padding:11px;background:linear-gradient(160deg,#3a342c,#26221c);box-shadow:0 30px 50px -24px rgba(44,40,36,.55);}
+  .phone-screen{border-radius:28px;overflow:hidden;position:relative;background:var(--ivory);height:540px;}
+  .phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:22px;background:#26221c;border-radius:0 0 14px 14px;z-index:30;}
+  .mscaled{transform-origin:top left;}
+
+  .notes{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .notes div{font-size:13.5px;line-height:1.55;color:var(--ink-soft);}
+  .notes h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin:0 0 7px;}
+
+  .footer-note{margin-top:110px;border-top:1px solid var(--line);padding-top:30px;font-size:15px;line-height:1.7;color:var(--ink-soft);max-width:720px;}
+  .footer-note strong{color:var(--ink);font-weight:400;}
+
+  /* ============ SHARED MOCK PRIMITIVES ============ */
+  .ph{background:
+      repeating-linear-gradient(135deg,rgba(44,40,36,.05) 0 2px,transparent 2px 11px),
+      var(--sand);
+    position:relative;display:flex;align-items:center;justify-content:center;}
+  .ph span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9082;}
+
+  /* ====== D1 BOARDING PASS HERO (1280x780) ====== */
+  .d1{width:1280px;height:780px;background:var(--ivory);color:var(--ink);padding:46px;font-family:var(--sans);position:relative;}
+  .d1::after{content:"";position:absolute;inset:22px;border:1px solid var(--line);pointer-events:none;}
+  .d1-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);position:relative;z-index:2;}
+  .d1-top .plane{color:oklch(0.42 0.055 250);}
+  .d1-center{position:absolute;top:230px;left:0;right:0;text-align:center;}
+  .d1-center .pre{font-family:var(--mono);font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:oklch(0.42 0.055 250);}
+  .d1-center h1{font-family:var(--serif);font-weight:400;font-size:104px;line-height:.96;margin:14px 0 6px;}
+  .d1-center h1 em{font-style:italic;}
+  .d1-center .en{font-family:var(--class);font-size:21px;letter-spacing:.05em;color:var(--ink-soft);}
+  .d1-ticket{position:absolute;left:46px;right:46px;bottom:64px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 40px -30px rgba(44,40,36,.5);display:flex;align-items:stretch;}
+  .d1-stub{position:relative;display:flex;}
+  .d1-cols{flex:1;display:grid;grid-template-columns:repeat(5,1fr);}
+  .d1-cell{padding:22px 24px;border-right:1px dashed var(--line);}
+  .d1-cell:last-child{border-right:none;}
+  .d1-cell .lab{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#a89b86;margin-bottom:8px;}
+  .d1-cell .val{font-family:var(--class);font-size:24px;color:var(--ink);}
+  .d1-perf{position:relative;width:0;border-left:2px dashed var(--line);}
+  .d1-side{width:170px;background:oklch(0.42 0.055 250);color:#f6f1e8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+  .d1-side .seat{font-family:var(--mono);font-size:12px;letter-spacing:.2em;opacity:.8;}
+  .d1-side .seatn{font-family:var(--serif);font-size:46px;line-height:1;}
+
+  /* ====== D2 EDITORIAL HERO (1280x780) ====== */
+  .d2{width:1280px;height:780px;background:var(--ivory);color:var(--ink);display:grid;grid-template-columns:1.05fr .95fr;font-family:var(--sans);}
+  .d2-left{padding:62px 54px;display:flex;flex-direction:column;}
+  .d2-kick{font-family:var(--mono);font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:oklch(0.60 0.13 42);}
+  .d2-left h1{font-family:var(--serif);font-weight:300;font-size:118px;line-height:.92;margin:auto 0 0;letter-spacing:.01em;}
+  .d2-left h1 .amp{font-style:italic;color:oklch(0.60 0.13 42);}
+  .d2-meta{margin-top:26px;display:flex;gap:34px;border-top:1px solid var(--line);padding-top:20px;}
+  .d2-meta .lab{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a89b86;}
+  .d2-meta .val{font-family:var(--class);font-size:20px;margin-top:5px;}
+  .d2-right{position:relative;}
+  .d2-right .ph{position:absolute;inset:34px 46px 34px 0;}
+  .d2-index{position:absolute;left:0;bottom:0;right:0;background:var(--ivory);}
+  .d2-tab{position:absolute;top:54px;right:46px;background:oklch(0.60 0.13 42);color:#f6f1e8;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:9px 16px;}
+
+  /* ====== D3 ATLAS HERO (1280x780) ====== */
+  .d3{width:1280px;height:780px;background:
+      radial-gradient(900px 600px at 70% 40%,#f3ead9,transparent),
+      var(--ivory);
+    color:var(--ink);position:relative;font-family:var(--sans);overflow:hidden;}
+  .d3-grid{position:absolute;inset:0;background-image:
+      radial-gradient(circle,rgba(44,40,36,.10) 1px,transparent 1.4px);
+    background-size:26px 26px;opacity:.55;}
+  .d3-head{position:absolute;top:54px;left:60px;z-index:5;}
+  .d3-head .pre{font-family:var(--mono);font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:oklch(0.52 0.06 150);}
+  .d3-head h1{font-family:var(--serif);font-weight:400;font-size:84px;line-height:.98;margin:12px 0 0;}
+  .d3-head h1 em{font-style:italic;}
+  .d3-head .en{font-family:var(--class);font-size:19px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+  .d3-legend{position:absolute;left:60px;bottom:54px;z-index:5;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:flex;gap:22px;}
+  .d3-legend b{color:oklch(0.52 0.06 150);font-weight:700;}
+  .d3-pin{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px;transform:translate(-50%,-50%);z-index:4;}
+  .d3-pin .dot{width:13px;height:13px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 5px rgba(44,40,36,.10);}
+  .d3-pin.major .dot{background:oklch(0.52 0.06 150);box-shadow:0 0 0 7px oklch(0.52 0.06 150 / .18);width:17px;height:17px;}
+  .d3-pin .nm{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:rgba(246,241,232,.7);padding:2px 6px;}
+
+  /* ====== MOBILE SCREENS (390 wide) ====== */
+  .m{width:390px;font-family:var(--sans);color:var(--ink);background:var(--ivory);}
+  /* m1 boarding */
+  .m1{padding:70px 26px 30px;min-height:772px;background:var(--ivory);}
+  .m1 .pre{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:oklch(0.42 0.055 250);text-align:center;}
+  .m1 h1{font-family:var(--serif);font-weight:400;font-size:56px;line-height:.96;text-align:center;margin:14px 0 4px;}
+  .m1 h1 em{font-style:italic;}
+  .m1 .card{margin-top:34px;background:#fff;border:1px solid var(--line);box-shadow:0 20px 36px -28px rgba(44,40,36,.5);}
+  .m1 .card .hd{background:oklch(0.42 0.055 250);color:#f6f1e8;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:12px 18px;display:flex;justify-content:space-between;}
+  .m1 .card .row{display:flex;justify-content:space-between;padding:16px 18px;border-bottom:1px dashed var(--line);}
+  .m1 .card .row .lab{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#a89b86;}
+  .m1 .card .row .val{font-family:var(--class);font-size:18px;}
+  .m1 .rsvp{margin-top:30px;display:grid;gap:12px;}
+  .m1 .btn{padding:16px;text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;}
+  .m1 .btn.go{background:oklch(0.42 0.055 250);color:#f6f1e8;}
+  .m1 .btn.no{border:1px solid var(--line);color:var(--ink-soft);}
+
+  /* m2 editorial */
+  .m2{min-height:772px;position:relative;background:var(--ink);}
+  .m2 .hero{position:absolute;inset:0;}
+  .m2 .hero .ph{position:absolute;inset:0;--sand:#cdbfa6;}
+  .m2 .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,40,36,.1),rgba(44,40,36,.72));}
+  .m2 .top{position:absolute;top:64px;left:0;right:0;text-align:center;color:#f6f1e8;font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;}
+  .m2 .bottom{position:absolute;left:26px;right:26px;bottom:54px;color:#f6f1e8;}
+  .m2 .bottom .k{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:oklch(0.78 0.11 52);}
+  .m2 .bottom h1{font-family:var(--serif);font-weight:300;font-size:64px;line-height:.92;margin:10px 0 14px;}
+  .m2 .bottom h1 .amp{font-style:italic;}
+  .m2 .bottom .dt{font-family:var(--class);font-size:17px;letter-spacing:.04em;opacity:.9;}
+  .m2 .scrollhint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#f6f1e8;font-family:var(--mono);font-size:10px;letter-spacing:.2em;opacity:.8;}
+
+  /* m3 atlas timeline */
+  .m3{padding:60px 0 30px;min-height:772px;background:var(--ivory);}
+  .m3 .pre{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:oklch(0.52 0.06 150);text-align:center;}
+  .m3 h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1;text-align:center;margin:12px 0 36px;}
+  .m3 .line{position:relative;margin-left:54px;padding-left:34px;border-left:2px dashed var(--line);}
+  .m3 .stop{position:relative;padding:0 26px 34px 0;}
+  .m3 .stop::before{content:"";position:absolute;left:-43px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 4px var(--ivory),0 0 0 5px var(--line);}
+  .m3 .stop.major::before{background:oklch(0.52 0.06 150);box-shadow:0 0 0 4px var(--ivory),0 0 0 6px oklch(0.52 0.06 150 /.4);}
+  .m3 .stop .n{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:#a89b86;}
+  .m3 .stop .nm{font-family:var(--serif);font-size:30px;line-height:1.05;margin:2px 0 6px;}
+  .m3 .stop .tx{font-size:12.5px;line-height:1.5;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="intro">
+    <div class="kicker">Partecipazione di Matrimonio · Sito Web · Studio di Design</div>
+    <h1>Antonio <em>&</em> Roberto</h1>
+    <div class="sub">Ogni storia d'amore è un viaggio — 3 direzioni a confronto</div>
+
+    <div class="rationale">
+      <div>
+        <h4>Il concept</h4>
+        <p>Il PDF racconta l'amore come un <strong>viaggio in 11 tappe</strong> nel mondo, fino a Napoli dove ci si dice "sì". Ogni direzione interpreta questa metafora del viaggio in modo diverso.</p>
+      </div>
+      <div>
+        <h4>Sistema condiviso</h4>
+        <p>Toni caldi <strong>avorio · sabbia · beige</strong>, serif elegante (Cormorant / Marcellus) + sans pulito (Jost), bilingue IT/EN, animazioni sobrie. Cambia solo l'accento e il "linguaggio" visivo.</p>
+      </div>
+      <div>
+        <h4>Cosa vedi qui</h4>
+        <p>Per ogni direzione: un'anteprima <strong>desktop</strong> (hero) e una <strong>mobile</strong>. Sono mockup statici per scegliere la rotta — poi costruisco il sito completo e interattivo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== DIRECTION 1 ============== -->
+  <section class="dir" style="--accent:var(--navy);">
+    <div class="dir-head">
+      <span class="dir-num">01</span>
+      <h2>Carta d'Imbarco</h2>
+      <span class="tag">Aeronautico · Navy</span>
+    </div>
+    <p class="dir-desc">Il sito <strong>è</strong> un biglietto aereo. Bordi sottili da ticket, dettagli in monospace, timbri, perforazioni, rotte tratteggiate. L'RSVP diventa letteralmente un imbarco: <strong>“Ci sarò / Perderò questo volo”</strong>. Elegante ma giocoso, perfetto per il tema "Sali a bordo con noi?".</p>
+
+    <div class="showcase">
+      <div class="col-desktop">
+        <div class="frame-label">Desktop — Hero</div>
+        <div class="browser">
+          <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="browser-url">antonioeroberto.love</span></div>
+          <div class="viewport" data-mock="d1">
+            <div class="scaled" data-w="1280" data-h="780">
+              <div class="d1">
+                <div class="d1-top"><span>Antonio <span class="plane">✈</span> Roberto</span><span>Boarding Pass · Carta d'Imbarco</span></div>
+                <div class="d1-center">
+                  <div class="pre">— Now Boarding · Imbarco in corso —</div>
+                  <h1>Ogni storia d'amore<br><em>è un viaggio.</em></h1>
+                  <div class="en">Every love story is a journey. Start ours.</div>
+                </div>
+                <div class="d1-ticket">
+                  <div class="d1-cols">
+                    <div class="d1-cell"><div class="lab">Passeggeri</div><div class="val">Antonio & Roberto</div></div>
+                    <div class="d1-cell"><div class="lab">Da</div><div class="val">Napoli (NAP)</div></div>
+                    <div class="d1-cell"><div class="lab">A</div><div class="val">Per Sempre</div></div>
+                    <div class="d1-cell"><div class="lab">Data</div><div class="val">20 · 09 · 2026</div></div>
+                    <div class="d1-cell"><div class="lab">Imbarco</div><div class="val">11:30</div></div>
+                  </div>
+                  <div class="d1-perf"></div>
+                  <div class="d1-side"><span class="seat">Posto</span><span class="seatn">A&R</span><span class="seat">Punta Romana</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-mobile">
+        <div class="frame-label">Mobile</div>
+        <div class="phone"><div class="phone-screen"><div class="phone-notch"></div>
+          <div class="mscaled" data-w="390" data-h="772">
+            <div class="m m1">
+              <div class="pre">— Now Boarding —</div>
+              <h1>Ogni storia<br>d'amore<br><em>è un viaggio</em></h1>
+              <div class="card">
+                <div class="hd"><span>Boarding Pass</span><span>AR · 2026</span></div>
+                <div class="row"><span class="lab">Da</span><span class="val">Napoli</span></div>
+                <div class="row"><span class="lab">A</span><span class="val">Per Sempre</span></div>
+                <div class="row"><span class="lab">Data</span><span class="val">20·09·26</span></div>
+                <div class="row" style="border:none;"><span class="lab">Ore</span><span class="val">11:30</span></div>
+              </div>
+              <div class="rsvp">
+                <div class="btn go">Ci sarò ✓</div>
+                <div class="btn no">Perderò questo volo</div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div><h5>Punti di forza</h5>Coerente al 100% col tema del PDF. Memorabile, condivisibile, divertente da navigare.</div>
+      <div><h5>Interazione desktop</h5>La "mappa rotte" è un tabellone partenze: ogni tappa è un volo che si apre.</div>
+      <div><h5>Rischio</h5>Va dosato: troppo "aeroporto" può togliere romanticismo. Lo teniamo raffinato.</div>
+    </div>
+  </section>
+
+  <!-- ============== DIRECTION 2 ============== -->
+  <section class="dir" style="--accent:var(--terra);">
+    <div class="dir-head">
+      <span class="dir-num">02</span>
+      <h2>Diario di Viaggio</h2>
+      <span class="tag">Editoriale · Terracotta</span>
+    </div>
+    <p class="dir-desc">Un <strong>magazine di viaggio</strong> raffinato: serif enorme, foto a tutta pagina, griglie ariose, numerazione delle tappe come un sommario. Il romanticismo è nelle immagini e nello spazio bianco. La metafora del viaggio resta, ma sussurrata con eleganza editoriale.</p>
+
+    <div class="showcase">
+      <div class="col-desktop">
+        <div class="frame-label">Desktop — Hero</div>
+        <div class="browser">
+          <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="browser-url">antonioeroberto.love</span></div>
+          <div class="viewport" data-mock="d2">
+            <div class="scaled" data-w="1280" data-h="780">
+              <div class="d2">
+                <div class="d2-left">
+                  <div class="d2-kick">Una storia in 11 tappe · 2026</div>
+                  <h1>Antonio<br><span class="amp">&</span> Roberto</h1>
+                  <div class="d2-meta">
+                    <div><div class="lab">Quando</div><div class="val">20 Settembre</div></div>
+                    <div><div class="lab">Dove</div><div class="val">Bacoli, Napoli</div></div>
+                    <div><div class="lab">Cerimonia</div><div class="val">ore 11:30</div></div>
+                  </div>
+                </div>
+                <div class="d2-right">
+                  <div class="d2-tab">Sfoglia il diario</div>
+                  <div class="ph"><span>foto · ritratto</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-mobile">
+        <div class="frame-label">Mobile</div>
+        <div class="phone"><div class="phone-screen"><div class="phone-notch"></div>
+          <div class="mscaled" data-w="390" data-h="772">
+            <div class="m m2">
+              <div class="hero"><div class="ph"><span>foto · full bleed</span></div><div class="grad"></div></div>
+              <div class="top">Antonio & Roberto · 2026</div>
+              <div class="bottom">
+                <div class="k">Una storia in 11 tappe</div>
+                <h1>Antonio<br><span class="amp">&</span> Roberto</h1>
+                <div class="dt">20 Settembre 2026 · Napoli</div>
+              </div>
+              <div class="scrollhint">scorri il diario ↓</div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div><h5>Punti di forza</h5>Senza tempo ed estremamente elegante. Le foto del viaggio diventano protagoniste.</div>
+      <div><h5>Interazione desktop</h5>Tappe come capitoli con grandi immagini; mappa rotte come sommario illustrato.</div>
+      <div><h5>Rischio</h5>Dipende molto dalle foto. Con placeholder rende meno, ma a regime è splendido.</div>
+    </div>
+  </section>
+
+  <!-- ============== DIRECTION 3 ============== -->
+  <section class="dir" style="--accent:var(--sage);">
+    <div class="dir-head">
+      <span class="dir-num">03</span>
+      <h2>Atlante</h2>
+      <span class="tag">Mappa rotte · Salvia</span>
+    </div>
+    <p class="dir-desc">Il cuore è la <strong>mappa del viaggio</strong>: su desktop una mappa interattiva (il "mappamondo") con le 11 tappe collegate da rotte tratteggiate — clicchi un punto e si apre il racconto. Su mobile diventa una <strong>timeline verticale</strong> da scorrere. Atmosfera da carta nautica, calda e curiosa.</p>
+
+    <div class="showcase">
+      <div class="col-desktop">
+        <div class="frame-label">Desktop — Mappa interattiva</div>
+        <div class="browser">
+          <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="browser-url">antonioeroberto.love</span></div>
+          <div class="viewport" data-mock="d3">
+            <div class="scaled" data-w="1280" data-h="780">
+              <div class="d3">
+                <div class="d3-grid"></div>
+                <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:2;" viewBox="0 0 1280 780" fill="none" preserveAspectRatio="none">
+                  <path d="M 980 250 C 820 180, 700 360, 560 300 S 360 460, 250 430 S 760 560, 980 250 Z" stroke="oklch(0.52 0.06 150)" stroke-width="1.6" stroke-dasharray="3 7" opacity="0.7"/>
+                  <path d="M 980 250 C 900 420, 700 360, 560 300" stroke="oklch(0.52 0.06 150)" stroke-width="1.6" stroke-dasharray="3 7" opacity="0.7"/>
+                  <path d="M 560 300 C 450 250, 360 380, 250 430" stroke="oklch(0.52 0.06 150)" stroke-width="1.6" stroke-dasharray="3 7" opacity="0.7"/>
+                  <path d="M 250 430 C 480 560, 760 600, 880 540" stroke="oklch(0.52 0.06 150)" stroke-width="1.6" stroke-dasharray="3 7" opacity="0.7"/>
+                </svg>
+                <div class="d3-head">
+                  <div class="pre">— Seguici sulla mappa —</div>
+                  <h1>Il nostro<br><em>viaggio</em></h1>
+                  <div class="en">11 tappe, un'unica destinazione: Napoli.</div>
+                </div>
+                <div class="d3-pin" style="left:980px;top:250px;"><span class="dot"></span><span class="nm">Sydney</span></div>
+                <div class="d3-pin" style="left:560px;top:300px;"><span class="dot"></span><span class="nm">Parigi</span></div>
+                <div class="d3-pin" style="left:250px;top:430px;"><span class="dot"></span><span class="nm">Londra</span></div>
+                <div class="d3-pin" style="left:880px;top:540px;"><span class="dot"></span><span class="nm">Filippine</span></div>
+                <div class="d3-pin major" style="left:560px;top:560px;"><span class="dot"></span><span class="nm">Napoli · sì</span></div>
+                <div class="d3-legend"><span><b>●</b> tappa del viaggio</span><span>clicca per leggere</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-mobile">
+        <div class="frame-label">Mobile — Timeline</div>
+        <div class="phone"><div class="phone-screen"><div class="phone-notch"></div>
+          <div class="mscaled" data-w="390" data-h="772">
+            <div class="m m3">
+              <div class="pre">— Il nostro viaggio —</div>
+              <h1>11 tappe</h1>
+              <div class="line">
+                <div class="stop"><div class="n">01 · Australia</div><div class="nm">Sydney</div><div class="tx">Il sogno condiviso fin dal primo messaggio.</div></div>
+                <div class="stop"><div class="n">07 · Francia</div><div class="nm">Parigi</div><div class="tx">La città dell'amore, il viaggio costruito in segreto.</div></div>
+                <div class="stop"><div class="n">10 · UK</div><div class="nm">Londra</div><div class="tx">La nostra prima casa insieme.</div></div>
+                <div class="stop major"><div class="n">11 · Italia</div><div class="nm">Napoli</div><div class="tx">Dove tutto è iniziato. Il luogo del nostro "sì".</div></div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div><h5>Punti di forza</h5>Risponde alla tua richiesta del "mappamondo interattivo" desktop. Esplorativo e originale.</div>
+      <div><h5>Interazione desktop</h5>Mappa pannabile con pin animati; l'aereo traccia la rotta tra le tappe allo scroll.</div>
+      <div><h5>Rischio</h5>La mappa va costruita astratta (non geografica precisa) per restare elegante e leggera.</div>
+    </div>
+  </section>
+
+  <div class="footer-note">
+    <strong>Prossimo passo →</strong> dimmi quale direzione preferisci (anche un mix: es. eleganza editoriale della 02 + mappa interattiva della 03, con il boarding pass della 01 solo per l'RSVP). Poi costruisco il <strong>sito completo</strong>: tutte le 11 tappe, dettagli evento, countdown, info pratiche, lista nozze e RSVP — in versione desktop responsive e mobile, con lo switch lingua IT/EN e le animazioni allo scroll.
+  </div>
+
+</div>
+
+<script>
+  // fit each desktop/mobile mock into its frame via transform scale
+  function fit(){
+    document.querySelectorAll('.viewport').forEach(vp=>{
+      const inner=vp.querySelector('.scaled');
+      const w=+inner.dataset.w, h=+inner.dataset.h;
+      const s=vp.clientWidth/w;
+      inner.style.transform='scale('+s+')';
+      vp.style.height=(h*s)+'px';
+    });
+    document.querySelectorAll('.mscaled').forEach(inner=>{
+      const w=+inner.dataset.w;
+      const screen=inner.closest('.phone-screen');
+      const s=screen.clientWidth/w;
+      inner.style.transform='scale('+s+')';
+    });
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  fit();
+</script>
+</body>
+</html>
