@@ -7,6 +7,9 @@ const SAGE_DEEP = 'oklch(0.42 0.055 150)'
 const LINE = '#cdbfa4'
 const LAND_FILL = 'oklch(0.815 0.045 142)'
 const COAST = 'oklch(0.46 0.05 145)'
+const DOT_BG = '#fffdf9'
+const SAGE_RING = 'oklch(0.52 0.062 150 / 0.22)'
+const HALF_PI = Math.PI / 2
 const ROT_DUR = 1100
 const SPIN_SPEED = 5
 
@@ -87,6 +90,27 @@ export default function MobileGlobe({ stops, active, visible }) {
       state.pathGen = d3.geoPath(state.proj, ctx)
     }
 
+    function drawDots() {
+      const center = [-state.rot[0], -state.rot[1]]
+      stops.forEach((s, i) => {
+        if (d3.geoDistance([s.lng, s.lat], center) > HALF_PI) return
+        const p = state.proj([s.lng, s.lat])
+        if (!p) return
+        const isActive = i === activeRef.current
+        const isFinal = !!s.final
+        const r = isActive ? 8 : 5.5
+
+        if (isActive) {
+          ctx.beginPath(); ctx.arc(p[0], p[1], r + 5, 0, Math.PI * 2)
+          ctx.fillStyle = SAGE_RING; ctx.fill()
+        }
+
+        ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, Math.PI * 2)
+        ctx.fillStyle = (isActive || isFinal) ? SAGE_DEEP : DOT_BG; ctx.fill()
+        ctx.lineWidth = 1; ctx.strokeStyle = LINE; ctx.stroke()
+      })
+    }
+
     function draw() {
       if (!state.ready || canvas.width <= 2) return
       ctx.clearRect(0, 0, state.W, state.H)
@@ -105,6 +129,8 @@ export default function MobileGlobe({ stops, active, visible }) {
       ctx.beginPath(); state.pathGen(route)
       ctx.lineWidth = 1.2; ctx.setLineDash([1.4, 4])
       ctx.strokeStyle = SAGE_DEEP; ctx.stroke(); ctx.setLineDash([])
+
+      drawDots()
     }
 
     function ensureRAF() {
