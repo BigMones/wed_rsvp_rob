@@ -14,6 +14,7 @@ export default function Journey() {
   const [globeVisible, setGlobeVisible] = useState(false)
   const sectionRef = useRef(null)
   const headRef = useReveal()
+  const atlasRef = useReveal()
   const { lang } = useLang()
   const t = (it, en) => lang === 'it' ? it : en
 
@@ -54,7 +55,7 @@ export default function Journey() {
             </h2>
           </div>
 
-          <div className="atlas reveal">
+          <div className="atlas reveal" ref={atlasRef}>
             <div className="atlas-stage-wrap">
               <AtlasStage
                 stops={STOPS}

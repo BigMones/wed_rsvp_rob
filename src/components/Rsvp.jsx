@@ -8,7 +8,9 @@ export default function Rsvp() {
   const [sent, setSent] = useState(false)
   const [success, setSuccess] = useState({ icon: '✈', title: '', text: '' })
   const headRef = useReveal()
+  const leadRef = useReveal()
   const passRef = useReveal()
+  const deadlineRef = useReveal()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -45,7 +47,7 @@ export default function Rsvp() {
             <em>{t('presenza', 'presence')}</em>
           </h2>
         </div>
-        <p className="lead reveal">
+        <p className="lead reveal" ref={leadRef}>
           {t(
             'Non vediamo l\'ora di vivere questo nuovo capitolo insieme a voi. Vi chiediamo di confermare la vostra presenza prima del decollo.',
             "We can't wait to travel this new chapter with you. Please confirm your presence before we take off."
@@ -126,7 +128,7 @@ export default function Rsvp() {
           </div>
         </form>
 
-        <div className="deadline reveal">
+        <div className="deadline reveal" ref={deadlineRef}>
           {t(
             'Scadenza · vi preghiamo di confermare entro il ',
             'Deadline · please confirm by '

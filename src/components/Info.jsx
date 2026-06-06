@@ -6,6 +6,9 @@ export default function Info() {
   const t = (it, en) => lang === 'it' ? it : en
   const headRef = useReveal()
   const leadRef = useReveal()
+  const card1Ref = useReveal()
+  const card2Ref = useReveal()
+  const card3Ref = useReveal()
 
   return (
     <section className="section info" id="info">
@@ -24,7 +27,7 @@ export default function Info() {
           )}
         </p>
         <div className="info-grid">
-          <div className="info-card reveal">
+          <div className="info-card reveal" ref={card1Ref}>
             <div className="n">01</div>
             <h3>{t('Meteo & ambientazione', 'Weather & setting')}</h3>
             <p>
@@ -34,7 +37,7 @@ export default function Info() {
               )}
             </p>
           </div>
-          <div className="info-card reveal d1">
+          <div className="info-card reveal d1" ref={card2Ref}>
             <div className="n">02</div>
             <h3>{t('Consigli di viaggio', 'Travel tips')}</h3>
             <ul>
@@ -43,7 +46,7 @@ export default function Info() {
               <li>{t('Venite pronti a godervi buon cibo, sole e tanto amore.', 'Come ready to enjoy good food, sunshine, and lots of love.')}</li>
             </ul>
           </div>
-          <div className="info-card reveal d2">
+          <div className="info-card reveal d2" ref={card3Ref}>
             <div className="n">03</div>
             <h3>{t('Una piccola nota', 'A little note')}</h3>
             <p>
