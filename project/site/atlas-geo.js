@@ -8,14 +8,16 @@
   const LAND_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json';
 
   // palette (mirrors site.css "Atlante" system)
-  const SAGE      = 'oklch(0.52 0.062 150)';
-  const SAGE_DEEP = 'oklch(0.42 0.055 150)';
+  const SAGE      = 'oklch(0.68 0.145 42)';     // coral
+  const SAGE_DEEP = 'oklch(0.585 0.155 40)';    // terracotta accent
   const LINE      = '#cdbfa4';
-  const LAND_FILL = 'oklch(0.815 0.045 142)';   // muted sage-tan landmass
-  const COAST     = 'oklch(0.46 0.05 145)';     // darker coastline
+  const LAND_FILL = 'oklch(0.855 0.05 64)';     // warm apricot-tan landmass
+  const COAST     = 'oklch(0.56 0.10 46)';      // warm terracotta coastline
   const OCEAN_FLAT= '#f1e9d8';
 
-  let CFG, stage, canvas, ctx, plane, toggleBtns = [];
+  let CFG, stage, canvas, ctx, plane, glabel, toggleBtns = [];
+  let desktopMode = 'chart';          // user's chosen mode on desktop
+  const mqMobile = window.matchMedia('(max-width:960px)');
   let W = 0, H = 0, DPR = 1;
   let land = null, GRAT = null, ROUTE = null, proj = null, pathGen = null;
   let stops = [], pins = [];
@@ -55,6 +57,11 @@
     plane.textContent = '\u2708';
     stage.appendChild(plane);
 
+    // live caption shown under the globe on mobile
+    glabel = document.createElement('div');
+    glabel.className = 'globe-label';
+    stage.appendChild(glabel);
+
     // pins (reuse .pin styling from site.css)
     stops.forEach((s, i) => {
       const pin = document.createElement('button');
@@ -72,7 +79,7 @@
     const tg = document.getElementById('mapToggle');
     if(tg){
       toggleBtns = Array.from(tg.querySelectorAll('button'));
-      toggleBtns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+      toggleBtns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode, true)));
     }
 
     // drag to spin (globe only)
@@ -91,6 +98,12 @@
     window.addEventListener('resize', onResize);
 
     stage.classList.add('mode-chart');
+    updateLabel(CFG._active || 0);
+
+    // mobile shows the globe by default; desktop respects the toggle
+    if(mqMobile.addEventListener) mqMobile.addEventListener('change', applyResponsiveMode);
+    else if(mqMobile.addListener) mqMobile.addListener(applyResponsiveMode);
+    applyResponsiveMode();
 
     // load geography
     fetch(LAND_URL)
@@ -99,8 +112,13 @@
         land = topojson.feature(topo, topo.objects.land);
         ready = true;
         sizeCanvas();
+        if(mode === 'globe'){                       // start centred on the active stop
+          const a = CFG._active || 0;
+          rot = [ -stops[a].lng, -stops[a].lat ];
+        }
         makeProjection();
         draw();
+        if(mode === 'globe'){ lastTs = 0; ensureRAF(); }
       })
       .catch(err => { console.warn('atlas-geo: land load failed', err); });
   }
@@ -247,7 +265,19 @@
   }
 
   /* ---------- mode + active ---------- */
-  function setMode(m){
+  function updateLabel(i){
+    if(!glabel) return;
+    const s = stops[i]; if(!s) return;
+    glabel.innerHTML = '<b>' + String(s.id).padStart(2,'0') + '</b>' +
+                       '<span class="gl-sep">\u00b7</span>' + s.name;
+  }
+
+  function applyResponsiveMode(){
+    setMode(mqMobile.matches ? 'globe' : desktopMode);
+  }
+
+  function setMode(m, userInitiated){
+    if(userInitiated && !mqMobile.matches) desktopMode = m;
     if(m === mode) return;
     mode = m;
     stage.classList.toggle('mode-globe', m === 'globe');
@@ -271,6 +301,7 @@
 
   function setActive(i){
     CFG._active = i;
+    updateLabel(i);
     pins.forEach((p, idx) => {
       p.classList.toggle('active', idx === i);
       const nm = p.querySelector('.nm');

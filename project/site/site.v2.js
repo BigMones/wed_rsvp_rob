@@ -112,6 +112,8 @@ function renderJourney(){
     tl.dataset.built='1';
     // re-observe new reveals
     tl.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+    // drive the globe from scroll position (mobile)
+    if(tlActiveObserver) tl.querySelectorAll('.tl-stop').forEach(el=>tlActiveObserver.observe(el));
   }
   if(tl){
     tl.querySelectorAll('.tl-stop').forEach((node,i)=>{
@@ -144,6 +146,16 @@ function tickCountdown(){
 const revealObserver=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); revealObserver.unobserve(e.target);} });
 },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+
+/* ---------- mobile: scrolling the timeline rotates the globe to each stop ---------- */
+const tlActiveObserver = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const nodes=[...document.querySelectorAll('#timeline .tl-stop')];
+    const i=nodes.indexOf(e.target);
+    if(i>=0 && i!==ACTIVE) setActive(i);
+  });
+},{rootMargin:'-72% 0px -22% 0px', threshold:0}) : null;
 
 /* ---------- nav scroll ---------- */
 function initNav(){

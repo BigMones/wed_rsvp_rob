@@ -47,6 +47,37 @@
 .map-toggle button:hover{ color:var(--sage-deep); }
 .map-toggle button.active{ background:var(--sage-deep); color:var(--ivory); }
 
+/* live caption under the mobile globe (desktop: hidden) */
+.globe-label{
+  display:none;
+  position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%);
+  white-space:nowrap; pointer-events:none;
+  font-family:var(--mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--sage-deep);
+}
+.globe-label b{ font-weight:700; }
+.globe-label .gl-sep{ color:var(--ink-faint); margin:0 .5em; }
+
 @media (max-width:960px){
-  .map-toggle{ display:none; }   /* desktop-only experience */
+  .map-toggle{ display:none; }   /* toggle is desktop-only */
+
+  /* ---- mobile: globe becomes a spinning sticky backdrop the timeline scrolls under ---- */
+  .atlas-stage-wrap{
+    display:flex; align-items:center; justify-content:center;
+    position:sticky; top:0; z-index:5;
+    height:40svh; min-height:300px;
+    pointer-events:none;                 /* page scrolls freely over the globe */
+    background:linear-gradient(180deg,var(--ivory) 0%,var(--ivory) 74%,transparent 100%);
+  }
+  .atlas-stage{
+    width:min(56vw,220px); aspect-ratio:1/1; height:auto;
+    border:none; border-radius:0; background:transparent;
+    box-shadow:none; overflow:visible;
+  }
+  .atlas-stage .atlas-frame,
+  .atlas-stage .atlas-hint,
+  .atlas-stage .pin{ display:none !important; }
+  .atlas-stage .atlas-plane{ font-size:15px; }
+  .globe-label{ display:block; }
+  #atlasCanvas{ touch-action:auto; }     /* don't swallow the page scroll gesture */
 }

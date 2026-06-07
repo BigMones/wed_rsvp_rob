@@ -13,10 +13,12 @@
   --ink-faint:#a99c84;
   --line:#cdbfa4;
   --line-soft:#ddd1b9;
-  --sage:oklch(0.52 0.062 150);
-  --sage-deep:oklch(0.42 0.055 150);
-  --sage-tint:oklch(0.52 0.062 150 / 0.12);
-  --sage-tint-2:oklch(0.52 0.062 150 / 0.20);
+  /* accent — derived from the watercolour heart logo (coral · terracotta) */
+  --sage:oklch(0.68 0.145 42);            /* coral */
+  --sage-deep:oklch(0.585 0.155 40);      /* terracotta — accents & text */
+  --sage-tint:oklch(0.68 0.145 42 / 0.13);
+  --sage-tint-2:oklch(0.68 0.145 42 / 0.22);
+  --peach:oklch(0.82 0.10 58);            /* pale sunset peach (for dark sections) */
   --white:#fffdf9;
 
   --serif:"Cormorant Garamond",Georgia,serif;
@@ -97,6 +99,11 @@ h1,h2,h3{font-weight:400;margin:0;}
 }
 .hero-routes{position:absolute;inset:0;z-index:0;opacity:.6;}
 .hero .pre{position:relative;z-index:2;}
+.hero-crest{position:relative;z-index:2;margin:22px 0 4px;}
+.hero-crest img{
+  width:clamp(260px,40vw,470px);height:auto;
+  filter:drop-shadow(0 18px 30px rgba(203,95,60,.20));
+}
 .hero h1{
   font-family:var(--serif);font-weight:300;position:relative;z-index:2;
   font-size:clamp(58px,13vw,184px);line-height:.92;letter-spacing:.01em;margin:18px 0 10px;
@@ -249,8 +256,8 @@ h1,h2,h3{font-weight:400;margin:0;}
 .rsvp{background:var(--ink);color:var(--ivory);position:relative;overflow:hidden;}
 .rsvp::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(247,242,234,.05) 1px,transparent 1.4px);background-size:30px 30px;}
 .rsvp .sec-head h2{color:var(--ivory);}
-.rsvp .sec-head h2 em{color:oklch(0.74 0.08 150);}
-.rsvp .kicker{color:oklch(0.74 0.08 150);}
+.rsvp .sec-head h2 em{color:var(--peach);}
+.rsvp .kicker{color:var(--peach);}
 .rsvp .lead{text-align:center;max-width:52ch;margin:0 auto clamp(40px,5vw,60px);color:rgba(247,242,234,.74);font-family:var(--class);font-size:clamp(18px,2.2vw,24px);line-height:1.5;}
 .pass{max-width:880px;margin:0 auto;background:var(--ivory);color:var(--ink);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1fr 250px;box-shadow:0 40px 80px -40px rgba(0,0,0,.6);position:relative;}
 .pass-main{padding:clamp(28px,3.4vw,44px);}
@@ -278,7 +285,7 @@ h1,h2,h3{font-weight:400;margin:0;}
 .pass-stub .st-grid .v{font-family:var(--class);font-size:18px;}
 .pass-stub .barcode{margin-top:20px;height:42px;background:repeating-linear-gradient(90deg,var(--ivory) 0 2px,transparent 2px 4px,var(--ivory) 4px 5px,transparent 5px 9px);opacity:.85;}
 .deadline{text-align:center;margin-top:30px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,242,234,.6);}
-.deadline b{color:oklch(0.78 0.09 150);font-weight:400;}
+.deadline b{color:var(--peach);font-weight:400;}
 
 /* success state */
 .pass.sent .pass-main, .pass.sent .pass-stub{opacity:.12;filter:grayscale(.5);transition:.5s;}
@@ -319,8 +326,7 @@ h1,h2,h3{font-weight:400;margin:0;}
 @media (max-width:960px){
   .nav-links{display:none;}
   .menu-btn{display:flex;}
-  .atlas{grid-template-columns:1fr;}
-  .atlas-stage-wrap{display:none;}        /* hide map on mobile */
+  .atlas{display:contents;}               /* let globe + timeline share the page scroll */
   .atlas-panel{display:none;}
   .timeline{display:block;}
   .det-grid{grid-template-columns:1fr;}
