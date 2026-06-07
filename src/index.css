@@ -443,6 +443,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   .pass-stub .barcode { width: 100%; }
 
   .atlas-nav { display: none; }
+  .atlas-left { display: contents; }   /* unwrap so atlas-stage-wrap sticks inside .wrap */
 
   /* mobile: globe becomes a spinning sticky the timeline scrolls under */
   .atlas-stage-wrap {
