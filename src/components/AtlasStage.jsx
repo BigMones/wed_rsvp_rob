@@ -46,6 +46,11 @@ export default function AtlasStage({ stops, active, mode, onSelect, onModeChange
       ))}
 
       <div className="atlas-plane" ref={planeRef}>✈</div>
+      <div className="globe-label">
+        <b>{String(stops[active].id).padStart(2, '0')}</b>
+        <span className="gl-sep">·</span>
+        {stops[active].name}
+      </div>
     </div>
   )
 }

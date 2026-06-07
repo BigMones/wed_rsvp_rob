@@ -3,10 +3,10 @@ import * as d3 from 'd3'
 import * as topojson from 'topojson-client'
 
 const LAND_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json'
-const SAGE_DEEP = 'oklch(0.42 0.055 150)'
+const SAGE_DEEP = 'oklch(0.585 0.155 40)'
 const LINE = '#cdbfa4'
-const LAND_FILL = 'oklch(0.815 0.045 142)'
-const COAST = 'oklch(0.46 0.05 145)'
+const LAND_FILL = 'oklch(0.855 0.05 64)'
+const COAST = 'oklch(0.56 0.10 46)'
 const OCEAN_FLAT = '#f1e9d8'
 const HALF_PI = Math.PI / 2
 const ROT_DUR = 1150

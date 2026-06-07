@@ -13,10 +13,11 @@
   --ink-faint: #a99c84;
   --line: #cdbfa4;
   --line-soft: #ddd1b9;
-  --sage: oklch(0.52 0.062 150);
-  --sage-deep: oklch(0.42 0.055 150);
-  --sage-tint: oklch(0.52 0.062 150 / 0.12);
-  --sage-tint-2: oklch(0.52 0.062 150 / 0.20);
+  --sage: oklch(0.68 0.145 42);
+  --sage-deep: oklch(0.585 0.155 40);
+  --sage-tint: oklch(0.68 0.145 42 / 0.13);
+  --sage-tint-2: oklch(0.68 0.145 42 / 0.22);
+  --peach: oklch(0.82 0.10 58);
   --white: #fffdf9;
 
   --serif: "Cormorant Garamond", Georgia, serif;
@@ -118,8 +119,8 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .hero .meta .it { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint); }
 .hero .meta .vl { font-family: var(--class); font-size: clamp(16px,2vw,21px); margin-top: 6px; }
 .hero .meta .col { padding: 0 6px; }
-.hero-crest { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-.hero-crest img { width: min(90%, 700px); height: auto; opacity: .07; mix-blend-mode: multiply; }
+.hero-crest { position: relative; z-index: 2; margin: 22px 0 4px; }
+.hero-crest img { width: clamp(260px, 40vw, 470px); height: auto; filter: drop-shadow(0 18px 30px rgba(203,95,60,.20)); }
 
 .scrolldown { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; font-family: var(--mono); font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-faint); display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; }
 .scrolldown .ln { width: 1px; height: 34px; background: var(--line); position: relative; overflow: hidden; }
@@ -253,12 +254,18 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .map-toggle button:hover { color: var(--sage-deep); }
 .map-toggle button.active { background: var(--sage-deep); color: var(--ivory); }
 
-/* ============================================================
-   MOBILE GLOBE BACKGROUND (chat3 feature)
-   ============================================================ */
-.mobile-globe-wrap {
+/* live caption under the mobile globe */
+.globe-label {
   display: none;
+  position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+  white-space: nowrap; pointer-events: none;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--sage-deep);
 }
+.globe-label b { font-weight: 700; }
+.globe-label .gl-sep { color: var(--ink-faint); margin: 0 .5em; }
+
+.mobile-globe-wrap { display: none; }
 
 /* ============================================================
    DETAILS
@@ -343,8 +350,8 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .rsvp { background: var(--ink); color: var(--ivory); position: relative; overflow: hidden; }
 .rsvp::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(247,242,234,.05) 1px, transparent 1.4px); background-size: 30px 30px; }
 .rsvp .sec-head h2 { color: var(--ivory); }
-.rsvp .sec-head h2 em { color: oklch(0.74 0.08 150); }
-.rsvp .kicker { color: oklch(0.74 0.08 150); }
+.rsvp .sec-head h2 em { color: var(--peach); }
+.rsvp .kicker { color: var(--peach); }
 .rsvp .lead { text-align: center; max-width: 52ch; margin: 0 auto clamp(40px,5vw,60px); color: rgba(247,242,234,.74); font-family: var(--class); font-size: clamp(18px,2.2vw,24px); line-height: 1.5; }
 .pass { max-width: 880px; margin: 0 auto; background: var(--ivory); color: var(--ink); border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: 1fr 250px; box-shadow: 0 40px 80px -40px rgba(0,0,0,.6); position: relative; }
 .pass-main { padding: clamp(28px,3.4vw,44px); }
@@ -371,7 +378,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .pass-stub .st-grid .v { font-family: var(--class); font-size: 18px; }
 .pass-stub .barcode { margin-top: 20px; height: 42px; background: repeating-linear-gradient(90deg, var(--ivory) 0 2px, transparent 2px 4px, var(--ivory) 4px 5px, transparent 5px 9px); opacity: .85; }
 .deadline { text-align: center; margin-top: 30px; font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,242,234,.6); }
-.deadline b { color: oklch(0.78 0.09 150); font-weight: 400; }
+.deadline b { color: var(--peach); font-weight: 400; }
 .pass.sent .pass-main, .pass.sent .pass-stub { opacity: .12; filter: grayscale(.5); transition: .5s; }
 .pass-success { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: rgba(247,242,234,.97); padding: 30px; }
 .pass.sent .pass-success { display: flex; animation: fade .6s var(--ease); }
@@ -419,8 +426,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   .nav-links { display: none; }
   .menu-btn { display: flex; }
   .map-toggle { display: none; }
-  .atlas { grid-template-columns: 1fr; }
-  .atlas-stage-wrap { display: none; }
+  .atlas { display: contents; }        /* globe + timeline share page scroll */
   .atlas-panel { display: none; }
   .timeline { display: block; }
   .det-grid { grid-template-columns: 1fr; }
@@ -434,44 +440,25 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   .pass-stub::before { left: 0; right: 0; top: 0; bottom: auto; height: 2px; width: auto; background-image: linear-gradient(90deg, var(--ivory) 50%, transparent 0); background-size: 16px 2px; }
   .pass-stub .barcode { width: 100%; }
 
-  /* Mobile globe background */
-  .mobile-globe-wrap {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 0;
+  /* mobile: globe becomes a spinning sticky the timeline scrolls under */
+  .atlas-stage-wrap {
+    display: flex; align-items: center; justify-content: center;
+    position: sticky; top: 0; z-index: 5;
+    height: 40svh; min-height: 300px;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 1.2s ease;
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory) 74%, transparent 100%);
   }
-  .mobile-globe-wrap.active { opacity: 1; }
-  .mobile-globe-wrap canvas { width: 100%; height: 100%; display: block; }
-
-  /* Remove solid background so the fixed globe canvas shows through */
-  .journey.globe-visible {
-    background: transparent;
+  .atlas-stage {
+    width: min(56vw, 220px); aspect-ratio: 1 / 1; height: auto;
+    border: none; border-radius: 0; background: transparent;
+    box-shadow: none; overflow: visible;
   }
-  .journey.globe-visible .sec-head {
-    background: rgba(247, 242, 234, 0.80);
-    border-radius: 6px;
-    padding: 16px 20px;
-    backdrop-filter: blur(3px);
-  }
-
-  /* Timeline items have subtle backdrop when globe is visible */
-  .journey.globe-visible .tl-stop {
-    background: rgba(247, 242, 234, 0.88);
-    border-radius: 6px;
-    padding: 14px 14px 32px 56px;
-    margin-bottom: 12px;
-    backdrop-filter: blur(2px);
-  }
-  .journey.globe-visible .tl-stop .tl-dot {
-    left: 26px;
-  }
-  .journey.globe-visible .tl-line {
-    left: 33px;
-  }
+  .atlas-stage .atlas-frame,
+  .atlas-stage .atlas-hint,
+  .atlas-stage .pin { display: none !important; }
+  .atlas-stage .atlas-plane { font-size: 15px; }
+  .globe-label { display: block; }
+  #atlasCanvas { touch-action: auto; }
 }
 
 @media (max-width: 560px) {
