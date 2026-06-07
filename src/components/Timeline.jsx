@@ -11,7 +11,7 @@ function TlStop({ stop, onVisible }) {
     if (!el || !onVisible) return
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) onVisible(stop.id - 1) },
-      { threshold: 0.4 }
+      { threshold: 0, rootMargin: '-42% 0px -42% 0px' }
     )
     obs.observe(el)
     return () => obs.disconnect()
