@@ -7,9 +7,12 @@ export default function Hero() {
   return (
     <header className="hero">
       <svg className="hero-routes" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
-        <path d="M-40 640 C 300 560, 460 760, 760 600 S 1180 420, 1500 540" stroke="oklch(0.52 0.062 150)" strokeWidth="1.4" strokeDasharray="3 8" opacity=".5"/>
-        <path d="M-40 240 C 360 360, 560 120, 900 260 S 1240 380, 1500 240" stroke="oklch(0.52 0.062 150)" strokeWidth="1.4" strokeDasharray="3 8" opacity=".35"/>
+        <path d="M-40 640 C 300 560, 460 760, 760 600 S 1180 420, 1500 540" stroke="oklch(0.64 0.13 42)" strokeWidth="1.4" strokeDasharray="3 8" opacity=".5"/>
+        <path d="M-40 240 C 360 360, 560 120, 900 260 S 1240 380, 1500 240" stroke="oklch(0.64 0.13 42)" strokeWidth="1.4" strokeDasharray="3 8" opacity=".35"/>
       </svg>
+      <div className="hero-crest pre">
+        <img src="/logo-cutout.png" alt="Antonio &amp; Roberto" width="1108" height="878" />
+      </div>
       <div className="kicker pre">
         {t('— Imbarco · 20 Settembre 2026 —', '— Now boarding · 20 September 2026 —')}
       </div>
