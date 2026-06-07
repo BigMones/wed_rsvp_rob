@@ -146,6 +146,8 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
     var(--ivory);
 }
 .atlas { display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(26px,3.5vw,56px); align-items: stretch; }
+.atlas-left { display: flex; flex-direction: column; }
+.atlas-nav { display: flex; gap: 10px; margin-top: 12px; }
 .atlas-stage-wrap { position: relative; }
 .atlas-stage {
   position: relative; width: 100%; aspect-ratio: 4 / 3.1; border: 1px solid var(--line);
@@ -439,6 +441,8 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   .pass-stub { flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
   .pass-stub::before { left: 0; right: 0; top: 0; bottom: auto; height: 2px; width: auto; background-image: linear-gradient(90deg, var(--ivory) 50%, transparent 0); background-size: 16px 2px; }
   .pass-stub .barcode { width: 100%; }
+
+  .atlas-nav { display: none; }
 
   /* mobile: globe becomes a spinning sticky the timeline scrolls under */
   .atlas-stage-wrap {

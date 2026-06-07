@@ -1,6 +1,6 @@
 import { useLang } from '../context/LangContext.jsx'
 
-export default function AtlasPanel({ stops, active, onPrev, onNext }) {
+export default function AtlasPanel({ stops, active }) {
   const { lang } = useLang()
   const t = (it, en) => lang === 'it' ? it : en
   const s = stops[active]
@@ -21,16 +21,6 @@ export default function AtlasPanel({ stops, active, onPrev, onNext }) {
       </div>
       <h3 className="ap-name">{s.name}</h3>
       <p className="ap-text">{s[lang]}</p>
-      <div className="ap-nav">
-        <button className="ap-btn" onClick={onPrev}>
-          <span>←</span>
-          <span> {t('Precedente', 'Previous')}</span>
-        </button>
-        <button className="ap-btn" onClick={onNext}>
-          <span>{t('Successiva', 'Next')} </span>
-          <span>→</span>
-        </button>
-      </div>
     </div>
   )
 }

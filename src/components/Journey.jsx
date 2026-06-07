@@ -8,7 +8,7 @@ import Timeline from './Timeline.jsx'
 
 export default function Journey() {
   const [active, setActive] = useState(0)
-  const [mapMode, setMapMode] = useState('chart')
+  const [mapMode, setMapMode] = useState('globe')
   const headRef = useReveal()
   const atlasRef = useReveal()
   const { lang } = useLang()
@@ -19,7 +19,7 @@ export default function Journey() {
   const handleNext = useCallback(() => setActive(i => (i + 1) % STOPS.length), [])
 
   // On mobile auto-switch to globe mode; restore user's desktop choice on resize
-  const desktopModeRef = useRef('chart')
+  const desktopModeRef = useRef('globe')
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 960px)')
     const apply = () => {
@@ -57,20 +57,30 @@ export default function Journey() {
         </div>
 
         <div className="atlas reveal" ref={atlasRef}>
-          <div className="atlas-stage-wrap">
-            <AtlasStage
-              stops={STOPS}
-              active={active}
-              mode={mapMode}
-              onSelect={handleSelect}
-              onModeChange={handleModeChange}
-            />
+          <div className="atlas-left">
+            <div className="atlas-stage-wrap">
+              <AtlasStage
+                stops={STOPS}
+                active={active}
+                mode={mapMode}
+                onSelect={handleSelect}
+                onModeChange={handleModeChange}
+              />
+            </div>
+            <div className="atlas-nav">
+              <button className="ap-btn" onClick={handlePrev}>
+                <span>←</span>
+                <span> {lang === 'it' ? 'Precedente' : 'Previous'}</span>
+              </button>
+              <button className="ap-btn" onClick={handleNext}>
+                <span>{lang === 'it' ? 'Successiva' : 'Next'} </span>
+                <span>→</span>
+              </button>
+            </div>
           </div>
           <AtlasPanel
             stops={STOPS}
             active={active}
-            onPrev={handlePrev}
-            onNext={handleNext}
           />
         </div>
 
