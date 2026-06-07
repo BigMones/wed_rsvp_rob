@@ -180,7 +180,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .pin.active .dot { background: var(--sage-deep); color: var(--ivory); border-color: var(--sage-deep); transform: scale(1.3); box-shadow: 0 0 0 6px var(--sage-tint); }
 .pin.final .dot { border-color: var(--sage-deep); color: var(--sage-deep); }
 .pin.final.active .dot { color: var(--ivory); }
-.atlas-plane { position: absolute; z-index: 4; font-size: 18px; color: var(--sage-deep); transform: translate(-50%,-50%); transition: left 1s var(--ease), top 1s var(--ease); pointer-events: none; display: none; }
+.atlas-plane { position: absolute; z-index: 4; font-size: 18px; color: var(--ivory); text-shadow: 0 1px 4px rgba(43,38,32,.55); transform: translate(-50%,-50%); transition: left 1s var(--ease), top 1s var(--ease); pointer-events: none; display: none; }
 .atlas-hint { position: absolute; left: 12px; bottom: 12px; z-index: 3; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
 
 /* detail panel */
