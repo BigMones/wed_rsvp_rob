@@ -406,6 +406,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .ps-board > div { display: flex; flex-direction: column; gap: 3px; }
 .ps-board .l { font-family: var(--mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); }
 .ps-board .v { font-family: var(--class); font-size: 15px; color: var(--ink); }
+.ps-board .ps-absent { color: var(--ink-faint); font-size: 13px; font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 
 /* ============================================================
    FOOTER

@@ -148,28 +148,37 @@ export default function Rsvp() {
             <div className="ps-icon">{success.icon}</div>
             <h3>{success.title}</h3>
             <p>{success.text}</p>
-            {sentDetails?.going && (
+            {sentDetails && (
               <div className="ps-board">
                 {sentDetails.name && (
                   <div>
-                    <span className="l">{t('Passeggero', 'Passenger')}</span>
+                    <span className="l">{sentDetails.going ? t('Passeggero', 'Passenger') : t('Nome', 'Name')}</span>
                     <span className="v">{sentDetails.name}</span>
                   </div>
                 )}
-                <div>
-                  <span className="l">{t('Ospiti', 'Guests')}</span>
-                  <span className="v">{sentDetails.guests}</span>
-                </div>
-                {sentDetails.bambini && sentDetails.bambini !== '0' && (
+                {sentDetails.going ? (
+                  <>
+                    <div>
+                      <span className="l">{t('Ospiti', 'Guests')}</span>
+                      <span className="v">{sentDetails.guests}</span>
+                    </div>
+                    {sentDetails.bambini && sentDetails.bambini !== '0' && (
+                      <div>
+                        <span className="l">{t('Bambini', 'Children')}</span>
+                        <span className="v">{sentDetails.bambini}</span>
+                      </div>
+                    )}
+                    <div>
+                      <span className="l">{t('Volo', 'Flight')}</span>
+                      <span className="v">AR · 2026</span>
+                    </div>
+                  </>
+                ) : (
                   <div>
-                    <span className="l">{t('Bambini', 'Children')}</span>
-                    <span className="v">{sentDetails.bambini}</span>
+                    <span className="l">{t('Stato', 'Status')}</span>
+                    <span className="v ps-absent">{t('Non partecipa', 'Not attending')}</span>
                   </div>
                 )}
-                <div>
-                  <span className="l">{t('Volo', 'Flight')}</span>
-                  <span className="v">AR · 2026</span>
-                </div>
               </div>
             )}
           </div>
