@@ -1,6 +1,21 @@
 import { useLang } from '../context/LangContext.jsx'
 import { useReveal } from '../hooks/useReveal.js'
 
+const PHOTOS = [
+  { src: '/photos/gallery-01.jpeg', cls: 'wide tall' },
+  { src: '/photos/gallery-02.jpeg', cls: '' },
+  { src: '/photos/gallery-03.jpeg', cls: 'tall' },
+  { src: '/photos/gallery-04.jpeg', cls: '' },
+  { src: '/photos/gallery-05.jpeg', cls: '' },
+  { src: '/photos/gallery-06.jpeg', cls: '' },
+  { src: '/photos/gallery-07.jpeg', cls: 'wide' },
+  { src: '/photos/gallery-08.jpeg', cls: '' },
+  { src: '/photos/gallery-09.jpeg', cls: '' },
+  { src: '/photos/gallery-10.jpeg', cls: '' },
+  { src: '/photos/gallery-11.jpeg', cls: '' },
+  { src: '/photos/gallery-12.jpeg', cls: 'wide' },
+]
+
 export default function Gallery() {
   const { lang } = useLang()
   const t = (it, en) => lang === 'it' ? it : en
@@ -18,13 +33,11 @@ export default function Gallery() {
           </h2>
         </div>
         <div className="gal-grid reveal" ref={gridRef}>
-          <div className="gal-item wide tall"><span className="lab">foto · 16:10</span></div>
-          <div className="gal-item"><span className="lab">foto</span></div>
-          <div className="gal-item"><span className="lab">foto</span></div>
-          <div className="gal-item tall"><span className="lab">foto · ritratto</span></div>
-          <div className="gal-item"><span className="lab">foto</span></div>
-          <div className="gal-item wide"><span className="lab">foto · panorama</span></div>
-          <div className="gal-item"><span className="lab">foto</span></div>
+          {PHOTOS.map(({ src, cls }, i) => (
+            <div key={i} className={`gal-item${cls ? ' ' + cls : ''}`}>
+              <img src={src} alt="" loading="lazy" />
+            </div>
+          ))}
         </div>
       </div>
     </section>

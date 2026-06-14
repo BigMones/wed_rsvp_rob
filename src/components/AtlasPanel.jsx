@@ -8,7 +8,9 @@ export default function AtlasPanel({ stops, active }) {
   return (
     <div className="atlas-panel" id="atlasPanel">
       <div className="ap-photo">
-        <span className="lab">{t('foto · ', 'photo · ')}{s.name.toLowerCase()}</span>
+        {s.photo && (
+          <img src={s.photo} alt={s.name} key={s.photo} />
+        )}
         <div className="stamp">
           {s.country[lang]}<br />{String(s.id).padStart(2, '0')}
         </div>
