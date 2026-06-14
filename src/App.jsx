@@ -12,6 +12,22 @@ import Registry from './components/Registry.jsx'
 import Gallery from './components/Gallery.jsx'
 import Rsvp from './components/Rsvp.jsx'
 import Footer from './components/Footer.jsx'
+import DashboardLogin from './components/DashboardLogin.jsx'
+import Dashboard from './components/Dashboard.jsx'
+
+const path = window.location.pathname
+
+function DashboardRoute() {
+  const [authed, setAuthed] = useState(() => sessionStorage.getItem('ar-dash') === '1')
+
+  const handleLogout = useCallback(() => {
+    sessionStorage.removeItem('ar-dash')
+    setAuthed(false)
+  }, [])
+
+  if (!authed) return <DashboardLogin onAuth={() => setAuthed(true)} />
+  return <Dashboard onLogout={handleLogout} />
+}
 
 export default function App() {
   const [lang, setLang] = useState(() => localStorage.getItem('ar-lang') || 'it')
@@ -22,6 +38,10 @@ export default function App() {
     localStorage.setItem('ar-lang', l)
     document.documentElement.lang = l
   }, [])
+
+  if (path === '/dashboard/login' || path === '/dashboard') {
+    return <DashboardRoute />
+  }
 
   return (
     <LangContext.Provider value={{ lang, switchLang }}>

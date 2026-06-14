@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLang } from '../context/LangContext.jsx'
 import { useReveal } from '../hooks/useReveal.js'
+import { supabase } from '../lib/supabase.js'
 
 export default function Rsvp() {
   const { lang } = useLang()
@@ -12,12 +13,16 @@ export default function Rsvp() {
   const passRef = useReveal()
   const deadlineRef = useReveal()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const form = e.target
     const name = (form.querySelector('[name=name]').value || '').trim()
-    const going = form.querySelector('[name=going]:checked')
-    const yes = going && going.value === 'yes'
+    const guests = form.querySelector('[name=guests]').value
+    const goingEl = form.querySelector('[name=going]:checked')
+    const yes = goingEl && goingEl.value === 'yes'
+    const notes = (form.querySelector('[name=notes]').value || '').trim()
+
+    await supabase.from('rsvp').insert({ name, guests, going: yes, notes })
 
     setSuccess({
       icon: yes ? '✈' : '☁',
