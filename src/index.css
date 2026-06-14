@@ -392,8 +392,9 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .deadline { text-align: center; margin-top: 30px; font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,242,234,.6); }
 .deadline b { color: var(--peach); font-weight: 400; }
 .pass.sent .pass-main, .pass.sent .pass-stub { opacity: .12; filter: grayscale(.5); transition: .5s; }
-.pass-success { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: var(--ivory); padding: 28px 30px; overflow-y: auto; }
-.pass.sent .pass-success { display: flex; animation: fade .6s var(--ease); }
+.pass-success { position: absolute; inset: 0; display: none; overflow-y: auto; background: var(--ivory); }
+.pass.sent .pass-success { display: flex; align-items: flex-start; animation: fade .6s var(--ease); }
+.ps-inner { margin: auto; width: 100%; padding: 28px 30px; display: flex; flex-direction: column; align-items: center; text-align: center; box-sizing: border-box; }
 @keyframes fade { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
 .ps-airline { display: flex; justify-content: center; }
 .ps-airline img { width: min(280px, 80%); height: auto; border-radius: 4px; }

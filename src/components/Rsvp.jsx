@@ -141,6 +141,7 @@ export default function Rsvp() {
           </aside>
 
           <div className="pass-success" id="successMsg">
+            <div className="ps-inner">
             <div className="ps-airline">
               <img src="/roos-airlines.jpeg" alt="Roos Airlines" />
             </div>
@@ -181,6 +182,7 @@ export default function Rsvp() {
                 )}
               </div>
             )}
+            </div>
           </div>
         </form>
 
