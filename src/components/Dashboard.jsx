@@ -7,6 +7,7 @@ export default function Dashboard({ onLogout }) {
   const [err, setErr] = useState(null)
 
   useEffect(() => {
+    if (!supabase) { setErr('Variabili Supabase mancanti'); setLoading(false); return }
     supabase
       .from('rsvp')
       .select('*')

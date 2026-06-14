@@ -24,7 +24,7 @@ export default function Rsvp() {
     const yes = goingEl && goingEl.value === 'yes'
     const notes = (form.querySelector('[name=notes]').value || '').trim()
 
-    await supabase.from('rsvp').insert({ name, guests, bambini, going: yes, notes })
+    if (supabase) await supabase.from('rsvp').insert({ name, guests, bambini, going: yes, notes })
 
     setSentDetails({ name, guests, bambini, going: yes })
     setSuccess({
