@@ -26,7 +26,7 @@ function TlStop({ stop, onVisible }) {
     >
       <span className="tl-dot">{stop.final ? '★' : stop.id}</span>
       <div className="tl-photo">
-        <span className="lab">{lang === 'it' ? 'foto · ' : 'photo · '}{stop.name.toLowerCase()}</span>
+        {stop.photo && <img src={stop.photo} alt={stop.name} loading="lazy" />}
       </div>
       <div className="tl-country">{stop.country[lang]}</div>
       <div className="tl-name">{stop.name}</div>
