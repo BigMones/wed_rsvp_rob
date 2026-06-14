@@ -395,9 +395,8 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .pass-success { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: var(--ivory); padding: 28px 30px; overflow-y: auto; }
 .pass.sent .pass-success { display: flex; animation: fade .6s var(--ease); }
 @keyframes fade { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
-.ps-airline { display: flex; align-items: center; justify-content: center; gap: 10px; }
-.ps-roo { font-size: 26px; line-height: 1; }
-.ps-brand { font-family: var(--mono); font-size: 11px; letter-spacing: .32em; text-transform: uppercase; color: var(--sage-deep); font-weight: 700; }
+.ps-airline { display: flex; justify-content: center; }
+.ps-airline img { width: min(280px, 80%); height: auto; border-radius: 4px; }
 .ps-divider { width: 160px; height: 1px; background: var(--line); margin: 14px auto; }
 .ps-icon { font-size: 38px; color: var(--sage-deep); animation: takeoff 1s var(--ease); }
 @keyframes takeoff { from { transform: translate(-30px,20px) rotate(-15deg); opacity: 0; } to { transform: none; opacity: 1; } }

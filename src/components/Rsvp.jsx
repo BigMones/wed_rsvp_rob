@@ -142,8 +142,7 @@ export default function Rsvp() {
 
           <div className="pass-success" id="successMsg">
             <div className="ps-airline">
-              <span className="ps-roo">🦘</span>
-              <span className="ps-brand">ROOS AIRLINES</span>
+              <img src="/roos-airlines.jpeg" alt="Roos Airlines" />
             </div>
             <div className="ps-divider" />
             <div className="ps-icon">{success.icon}</div>
