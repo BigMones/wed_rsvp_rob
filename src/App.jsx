@@ -55,8 +55,8 @@ export default function App() {
         <Location />
         <Info />
         <Registry />
-        <Gallery />
         <Rsvp />
+        <Gallery />
         <Footer />
       </div>
     </LangContext.Provider>

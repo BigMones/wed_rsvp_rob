@@ -60,8 +60,8 @@ export default function Details() {
             </div>
             <div className="small">
               {t(
-                'Toni chiari e tessuti leggeri, pronti per il sole di settembre.',
-                'Light tones and breezy fabrics, ready for the September sun.'
+                'Vorremmo che questa giornata fosse un\'esplosione di colore. Sentitevi liberi di indossare la tonalità che più vi rappresenta e di contribuire a creare un arcobaleno di sfumature. Per questa occasione, vi chiediamo gentilmente di lasciare il bianco e il nero nell\'armadio e di celebrare con noi la gioia del colore. 🌈',
+                'We would love this day to be a celebration of colour. Feel free to wear the shade that best represents you and help us create a beautiful rainbow of colours. For this special occasion, we kindly ask that you leave black and white in the wardrobe and join us in celebrating the joy of colour. 🌈'
               )}
             </div>
           </div>

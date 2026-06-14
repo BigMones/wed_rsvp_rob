@@ -12,10 +12,10 @@ export const STOPS = [
     en: 'They travelled there to celebrate their friends\' love, their first wedding experienced together. On that wild little island, they began to feel that their own moment was quietly finding its way.',
   },
   {
-    id: 3, name: 'Indonesia', country: { it: 'Indonesia', en: 'Indonesia' },
+    id: 3, name: 'Bali', country: { it: 'Indonesia', en: 'Indonesia' },
     lng: 115.09, lat: -8.34,
-    it: 'Una pausa necessaria. Un viaggio che li ha purificati. Tra templi e discrezione, in un luogo che non lasciava spazio al loro amore, hanno imparato a nascondersi dietro un sorriso: fratelli per il mondo, complici in segreto, amore per sempre.',
-    en: 'A necessary pause. A journey that cleansed them. Among temples and quiet discretion, in a place that left no room for their love, they learned to hide behind a smile: brothers to the world, accomplices in secret, love forever.',
+    it: 'Un viaggio speciale tra templi, risaie e tramonti sull\'oceano. A Bali hanno trovato il tempo per rallentare, riscoprirsi e creare ricordi che ancora oggi portano nel cuore.',
+    en: 'A special journey through temples, rice terraces, and sunsets over the ocean. In Bali, they found the time to slow down, reconnect with themselves, and create memories they still carry in their hearts today.',
   },
   {
     id: 4, name: 'Filippine', country: { it: 'Filippine', en: 'Philippines' },
@@ -33,7 +33,7 @@ export const STOPS = [
     id: 6, name: 'Monaco di Baviera', country: { it: 'Germania', en: 'Germany' },
     lng: 11.58, lat: 48.14,
     it: 'Tra birra, risate e musica, un viaggio vissuto insieme senza pensieri. Eppure Antonio, nel suo modo silenzioso, stava già tracciando la strada: credeva così tanto nell\'amore da volerlo vedere nascere anche negli altri. Proprio lì, sotto le note di Adele, è arrivata una richiesta speciale: essere testimoni di un amore pronto a diventare promessa.',
-    en: 'Between beer, laughter, and music, it was a journey lived together without a care. And yet, in his quiet way, Antonio was already paving the path: he believed in love so deeply that he wanted to see it blossom in others. Right there, beneath the notes of Adele, a special request arrived: to be witnesses to a love ready to become a promise.',
+    en: 'Between beer, laughter, and music, they shared a carefree adventure together. Yet Antonio, in his quiet way, was already looking ahead. He believed in love so deeply that he wanted to celebrate it in the lives of those around him. There, beneath the notes of an Adele song, came a special request: to be witnesses to a love ready to become a lifelong promise.',
   },
   {
     id: 7, name: 'Parigi', country: { it: 'Francia', en: 'France' },
@@ -50,8 +50,8 @@ export const STOPS = [
   {
     id: 9, name: 'Edimburgo', country: { it: 'Scozia', en: 'Scotland' },
     lng: -3.19, lat: 55.95,
-    it: 'Un gesto per ricambiare, un viaggio pensato con il cuore. Roberto ha scelto Edimburgo per regalare ad Antonio qualcosa di davvero suo, un luogo capace di parlare alla sua anima. Tra freddo, strade incantate e storie misteriose, hanno vissuto un\'esperienza sospesa tra realtà e magia.',
-    en: 'A gesture to give back, a journey shaped by the heart. Roberto chose Edinburgh to gift Antonio something truly his own — a place that could speak to his soul. Among the cold, enchanted streets, and mysterious stories, they lived an experience suspended between reality and magic.',
+    it: 'Un viaggio pensato con il cuore. Roberto ha scelto Edimburgo per regalare ad Antonio qualcosa di davvero suo, un luogo capace di parlare alla sua anima. Tra freddo, strade incantate e storie misteriose, hanno vissuto un\'esperienza sospesa tra realtà e magia.',
+    en: 'A journey shaped by the heart. Roberto chose Edinburgh to gift Antonio something truly his own — a place that could speak to his soul. Among the cold, enchanted streets, and mysterious stories, they lived an experience suspended between reality and magic.',
   },
   {
     id: 10, name: 'Londra', country: { it: 'Inghilterra', en: 'England' },

@@ -8,6 +8,7 @@ export default function Rsvp() {
   const t = (it, en) => lang === 'it' ? it : en
   const [sent, setSent] = useState(false)
   const [success, setSuccess] = useState({ icon: '✈', title: '', text: '' })
+  const [sentDetails, setSentDetails] = useState(null)
   const headRef = useReveal()
   const leadRef = useReveal()
   const passRef = useReveal()
@@ -18,12 +19,14 @@ export default function Rsvp() {
     const form = e.target
     const name = (form.querySelector('[name=name]').value || '').trim()
     const guests = form.querySelector('[name=guests]').value
+    const bambini = form.querySelector('[name=bambini]').value
     const goingEl = form.querySelector('[name=going]:checked')
     const yes = goingEl && goingEl.value === 'yes'
     const notes = (form.querySelector('[name=notes]').value || '').trim()
 
-    await supabase.from('rsvp').insert({ name, guests, going: yes, notes })
+    await supabase.from('rsvp').insert({ name, guests, bambini, going: yes, notes })
 
+    setSentDetails({ name, guests, bambini, going: yes })
     setSuccess({
       icon: yes ? '✈' : '☁',
       title: yes
@@ -73,8 +76,19 @@ export default function Rsvp() {
               <div className="field">
                 <label>{t('Numero di ospiti', 'Number of guests')}</label>
                 <select name="guests">
-                  <option>1</option><option>2</option><option>3</option>
-                  <option>4</option><option>5+</option>
+                  {['1','2','3','4','5','6','7','8','9','10+'].map(v => (
+                    <option key={v}>{v}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="pass-row pass-row--half">
+              <div className="field">
+                <label>{t('Di cui bambini', 'Of which children')}</label>
+                <select name="bambini">
+                  {['0','1','2','3','4','5+'].map(v => (
+                    <option key={v}>{v}</option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -83,7 +97,7 @@ export default function Rsvp() {
               <div className="choice">
                 <label>
                   <input type="radio" name="going" value="yes" required />
-                  <span className="opt">{t('Ci sarò ✓', "I'll be there ✓")}</span>
+                  <span className="opt">{t('Ci sarò', "I'll be there")}</span>
                 </label>
                 <label>
                   <input type="radio" name="going" value="no" />
@@ -127,9 +141,38 @@ export default function Rsvp() {
           </aside>
 
           <div className="pass-success" id="successMsg">
-            <div className="plane">{success.icon}</div>
+            <div className="ps-airline">
+              <span className="ps-roo">🦘</span>
+              <span className="ps-brand">ROOS AIRLINES</span>
+            </div>
+            <div className="ps-divider" />
+            <div className="ps-icon">{success.icon}</div>
             <h3>{success.title}</h3>
             <p>{success.text}</p>
+            {sentDetails?.going && (
+              <div className="ps-board">
+                {sentDetails.name && (
+                  <div>
+                    <span className="l">{t('Passeggero', 'Passenger')}</span>
+                    <span className="v">{sentDetails.name}</span>
+                  </div>
+                )}
+                <div>
+                  <span className="l">{t('Ospiti', 'Guests')}</span>
+                  <span className="v">{sentDetails.guests}</span>
+                </div>
+                {sentDetails.bambini && sentDetails.bambini !== '0' && (
+                  <div>
+                    <span className="l">{t('Bambini', 'Children')}</span>
+                    <span className="v">{sentDetails.bambini}</span>
+                  </div>
+                )}
+                <div>
+                  <span className="l">{t('Volo', 'Flight')}</span>
+                  <span className="v">AR · 2026</span>
+                </div>
+              </div>
+            )}
           </div>
         </form>
 
