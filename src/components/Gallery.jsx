@@ -4,7 +4,7 @@ import { useReveal } from '../hooks/useReveal.js'
 const PHOTOS = [
   { src: '/photos/gallery-01.jpeg', cls: 'wide tall' },
   { src: '/photos/gallery-02.jpeg', cls: '' },
-  { src: '/photos/gallery-03.jpeg', cls: 'tall' },
+  { src: '/photos/gallery-03.jpeg', cls: 'tall', pos: 'left center' },
   { src: '/photos/gallery-04.jpeg', cls: '' },
   { src: '/photos/gallery-05.jpeg', cls: '' },
   { src: '/photos/gallery-06.jpeg', cls: '' },
@@ -13,7 +13,7 @@ const PHOTOS = [
   { src: '/photos/gallery-09.jpeg', cls: '' },
   { src: '/photos/gallery-10.jpeg', cls: '' },
   { src: '/photos/gallery-11.jpeg', cls: '' },
-  { src: '/photos/gallery-12.jpeg', cls: 'wide' },
+  { src: '/photos/gallery-12.jpeg', cls: 'wide', pos: '50% 62%' },
 ]
 
 export default function Gallery() {
@@ -33,9 +33,9 @@ export default function Gallery() {
           </h2>
         </div>
         <div className="gal-grid reveal" ref={gridRef}>
-          {PHOTOS.map(({ src, cls }, i) => (
+          {PHOTOS.map(({ src, cls, pos }, i) => (
             <div key={i} className={`gal-item${cls ? ' ' + cls : ''}`}>
-              <img src={src} alt="" loading="lazy" />
+              <img src={src} alt="" loading="lazy" style={pos ? { objectPosition: pos } : undefined} />
             </div>
           ))}
         </div>
