@@ -6,6 +6,7 @@ export default function Dashboard({ onLogout }) {
   const [loading, setLoading] = useState(true)
   const [err, setErr] = useState(null)
   const [deleting, setDeleting] = useState(null)
+  const [confirmId, setConfirmId] = useState(null)
 
   useEffect(() => {
     if (!supabase) { setErr('Variabili Supabase mancanti'); setLoading(false); return }
@@ -23,6 +24,7 @@ export default function Dashboard({ onLogout }) {
   const handleDelete = useCallback(async (id) => {
     if (!supabase || deleting) return
     setDeleting(id)
+    setConfirmId(null)
     const { error } = await supabase.from('rsvp').delete().eq('id', id)
     if (!error) setRows(prev => prev.filter(r => r.id !== id))
     setDeleting(null)
@@ -112,21 +114,49 @@ export default function Dashboard({ onLogout }) {
                       {new Date(r.created_at).toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' })}
                     </td>
                     <td style={{ ...cell, textAlign: 'right', whiteSpace: 'nowrap' }}>
-                      <button
-                        onClick={() => handleDelete(r.id)}
-                        disabled={!!deleting}
-                        style={{
-                          background: 'none', border: '1px solid var(--line)', borderRadius: 3,
-                          padding: '4px 10px', cursor: deleting ? 'default' : 'pointer',
-                          fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '.14em',
-                          textTransform: 'uppercase', color: '#c0614a',
-                          transition: 'border-color .2s, color .2s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.borderColor = '#c0614a'; e.currentTarget.style.background = 'oklch(0.62 0.09 45 / .08)' }}
-                        onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--line)'; e.currentTarget.style.background = 'none' }}
-                      >
-                        Elimina
-                      </button>
+                      {confirmId === r.id ? (
+                        <span style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}>
+                          <button
+                            onClick={() => handleDelete(r.id)}
+                            disabled={!!deleting}
+                            style={{
+                              background: '#c0614a', border: 'none', borderRadius: 3,
+                              padding: '4px 10px', cursor: 'pointer',
+                              fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '.14em',
+                              textTransform: 'uppercase', color: '#fff',
+                            }}
+                          >
+                            Conferma
+                          </button>
+                          <button
+                            onClick={() => setConfirmId(null)}
+                            style={{
+                              background: 'none', border: '1px solid var(--line)', borderRadius: 3,
+                              padding: '4px 10px', cursor: 'pointer',
+                              fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '.14em',
+                              textTransform: 'uppercase', color: 'var(--ink-faint)',
+                            }}
+                          >
+                            Annulla
+                          </button>
+                        </span>
+                      ) : (
+                        <button
+                          onClick={() => setConfirmId(r.id)}
+                          disabled={!!deleting}
+                          style={{
+                            background: 'none', border: '1px solid var(--line)', borderRadius: 3,
+                            padding: '4px 10px', cursor: deleting ? 'default' : 'pointer',
+                            fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '.14em',
+                            textTransform: 'uppercase', color: '#c0614a',
+                            transition: 'border-color .2s',
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.borderColor = '#c0614a'; e.currentTarget.style.background = 'oklch(0.62 0.09 45 / .08)' }}
+                          onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--line)'; e.currentTarget.style.background = 'none' }}
+                        >
+                          Elimina
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}
