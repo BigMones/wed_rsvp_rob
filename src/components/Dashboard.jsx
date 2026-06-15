@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { supabase } from '../lib/supabase.js'
 
 export default function Dashboard({ onLogout }) {
   const [rows, setRows] = useState([])
   const [loading, setLoading] = useState(true)
   const [err, setErr] = useState(null)
+  const [deleting, setDeleting] = useState(null)
 
   useEffect(() => {
     if (!supabase) { setErr('Variabili Supabase mancanti'); setLoading(false); return }
@@ -18,6 +19,14 @@ export default function Dashboard({ onLogout }) {
         setLoading(false)
       })
   }, [])
+
+  const handleDelete = useCallback(async (id) => {
+    if (!supabase || deleting) return
+    setDeleting(id)
+    const { error } = await supabase.from('rsvp').delete().eq('id', id)
+    if (!error) setRows(prev => prev.filter(r => r.id !== id))
+    setDeleting(null)
+  }, [deleting])
 
   const going = rows.filter(r => r.going)
   const notGoing = rows.filter(r => !r.going)
@@ -45,7 +54,7 @@ export default function Dashboard({ onLogout }) {
         }}>Esci</button>
       </div>
 
-      <div style={{ maxWidth: 1000, margin: '0 auto', padding: '40px clamp(22px,5vw,48px) 80px' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '40px clamp(22px,5vw,48px) 80px' }}>
 
         {/* stats */}
         <div style={{ display: 'flex', gap: 16, marginBottom: 40, flexWrap: 'wrap' }}>
@@ -76,16 +85,17 @@ export default function Dashboard({ onLogout }) {
             <table style={{ width: '100%', borderCollapse: 'collapse', background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 4 }}>
               <thead>
                 <tr style={{ background: 'var(--paper)' }}>
-                  {['Nome', 'Ospiti', 'Presenza', 'Note', 'Data'].map(h => (
+                  {['Nome', 'Ospiti', 'Bambini', 'Presenza', 'Note', 'Data', ''].map(h => (
                     <th key={h} style={{ ...cell, ...mono, color: 'var(--ink-faint)', textAlign: 'left', fontWeight: 400 }}>{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {rows.map(r => (
-                  <tr key={r.id}>
+                  <tr key={r.id} style={{ opacity: deleting === r.id ? 0.4 : 1, transition: 'opacity .25s' }}>
                     <td style={{ ...cell, fontFamily: 'var(--class)', fontSize: 17 }}>{r.name}</td>
                     <td style={{ ...cell, ...mono, color: 'var(--ink-soft)' }}>{r.guests}</td>
+                    <td style={{ ...cell, ...mono, color: 'var(--ink-soft)' }}>{r.bambini || '—'}</td>
                     <td style={{ ...cell }}>
                       <span style={{
                         ...mono, fontSize: 9,
@@ -97,9 +107,26 @@ export default function Dashboard({ onLogout }) {
                         {r.going ? 'Presente' : 'Assente'}
                       </span>
                     </td>
-                    <td style={{ ...cell, color: 'var(--ink-soft)', fontSize: 14, maxWidth: 260 }}>{r.notes || '—'}</td>
+                    <td style={{ ...cell, color: 'var(--ink-soft)', fontSize: 14, maxWidth: 240 }}>{r.notes || '—'}</td>
                     <td style={{ ...cell, ...mono, color: 'var(--ink-faint)', whiteSpace: 'nowrap' }}>
                       {new Date(r.created_at).toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' })}
+                    </td>
+                    <td style={{ ...cell, textAlign: 'right', whiteSpace: 'nowrap' }}>
+                      <button
+                        onClick={() => handleDelete(r.id)}
+                        disabled={!!deleting}
+                        style={{
+                          background: 'none', border: '1px solid var(--line)', borderRadius: 3,
+                          padding: '4px 10px', cursor: deleting ? 'default' : 'pointer',
+                          fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '.14em',
+                          textTransform: 'uppercase', color: '#c0614a',
+                          transition: 'border-color .2s, color .2s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.borderColor = '#c0614a'; e.currentTarget.style.background = 'oklch(0.62 0.09 45 / .08)' }}
+                        onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--line)'; e.currentTarget.style.background = 'none' }}
+                      >
+                        Elimina
+                      </button>
                     </td>
                   </tr>
                 ))}
