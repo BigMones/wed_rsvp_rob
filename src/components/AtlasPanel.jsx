@@ -9,7 +9,7 @@ export default function AtlasPanel({ stops, active }) {
     <div className="atlas-panel" id="atlasPanel">
       <div className="ap-photo">
         {s.photo && (
-          <img src={s.photo} alt={s.name} key={s.photo} />
+          <img src={s.photo} alt={s.name} key={s.photo} style={s.photoPosition ? { objectPosition: s.photoPosition } : undefined} />
         )}
         <div className="stamp">
           {s.country[lang]}<br />{String(s.id).padStart(2, '0')}

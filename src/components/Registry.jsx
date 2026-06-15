@@ -64,16 +64,15 @@ export default function Registry() {
               <span className="ro-lab">IBAN</span>
               <span className="ro-iban">IT76 F030 6976 2421 0000 0006 564</span>
             </div>
+            <div className="ro-row ro-row--full">
+              <span className="ro-lab">WhatsApp</span>
+              <span className="ro-val">
+                {t('Si richiede l\'invio della ricevuta: ', 'Please send the receipt: ')}
+                <a href="https://wa.me/393935056748" style={{ color: 'var(--sage-deep)', textDecoration: 'none' }}>+39 393 505 6748</a>
+              </span>
+            </div>
           </div>
         </div>
-
-        <p className="reg-whatsapp">
-          {t(
-            'Si richiede l\'invio della ricevuta su WhatsApp: ',
-            'Please send the receipt via WhatsApp: '
-          )}
-          <a href="https://wa.me/393935056748">+39 393 505 6748</a>
-        </p>
       </div>
     </section>
   )

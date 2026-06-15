@@ -119,6 +119,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .hero .meta .it { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint); }
 .hero .meta .vl { font-family: var(--class); font-size: clamp(16px,2vw,21px); margin-top: 6px; }
 .hero .meta .col { padding: 0 6px; }
+.hero-sub { margin-bottom: 2px; }
 .hero-crest { position: relative; z-index: 2; margin: 22px 0 4px; }
 .hero-crest img { width: clamp(260px, 40vw, 470px); height: auto; filter: drop-shadow(0 18px 30px rgba(203,95,60,.20)); }
 
@@ -288,15 +289,12 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px,4vw,60px); align-items: center; }
 .loc-map {
   position: relative; aspect-ratio: 1 / 1; border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
-  background: radial-gradient(circle at 60% 40%, #eee3cf, #e2d4ba);
-  background-image: radial-gradient(circle, rgba(43,38,32,.08) 1px, transparent 1.4px);
-  background-size: 24px 24px;
+  background: var(--sand);
 }
-.loc-map .pinmark { position: absolute; top: 46%; left: 54%; transform: translate(-50%,-100%); z-index: 3; display: flex; flex-direction: column; align-items: center; }
+.loc-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.loc-map .pinmark { position: absolute; top: 46%; left: 54%; transform: translate(-50%,-100%); z-index: 3; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
 .loc-map .pinmark .head { width: 18px; height: 18px; border-radius: 50% 50% 50% 0; background: var(--sage-deep); transform: rotate(45deg); box-shadow: 0 0 0 6px var(--sage-tint); }
 .loc-map .pinmark .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; background: var(--white); padding: 3px 8px; border: 1px solid var(--line); margin-top: 14px; border-radius: 3px; }
-.loc-map .water { position: absolute; left: 0; right: 0; bottom: 0; height: 38%; background: linear-gradient(0deg, var(--sage-tint-2), transparent); }
-.loc-map .ph-note { position: absolute; left: 12px; bottom: 12px; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); }
 .loc-info .eyebrow { margin-bottom: 14px; display: block; }
 .loc-info h2 { font-family: var(--serif); font-size: clamp(34px,4.6vw,58px); line-height: 1.02; }
 .loc-info h2 em { font-style: italic; color: var(--sage-deep); }
@@ -337,6 +335,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .reg-opt-icon { font-size: 22px; line-height: 1; }
 .reg-opt-head h3 { font-family: var(--serif); font-size: 22px; color: var(--ink); margin: 0; }
 .ro-row { display: grid; grid-template-columns: 120px 1fr; gap: 6px; align-items: baseline; margin-bottom: 12px; }
+.ro-row--full { grid-template-columns: 120px 1fr; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
 .ro-lab { font-family: var(--mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); }
 .ro-val { font-family: var(--class); font-size: 15px; color: var(--ink); line-height: 1.45; }
 .ro-iban { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; color: var(--ink); word-break: break-all; }

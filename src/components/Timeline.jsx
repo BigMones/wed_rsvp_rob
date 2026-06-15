@@ -26,7 +26,7 @@ function TlStop({ stop, onVisible }) {
     >
       <span className="tl-dot">{stop.final ? '★' : stop.id}</span>
       <div className="tl-photo">
-        {stop.photo && <img src={stop.photo} alt={stop.name} loading="lazy" />}
+        {stop.photo && <img src={stop.photo} alt={stop.name} loading="lazy" style={stop.photoPosition ? { objectPosition: stop.photoPosition } : undefined} />}
       </div>
       <div className="tl-country">{stop.country[lang]}</div>
       <div className="tl-name">{stop.name}</div>

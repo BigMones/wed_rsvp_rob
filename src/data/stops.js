@@ -21,7 +21,7 @@ export const STOPS = [
     en: 'A special journey through temples, rice terraces, and sunsets over the ocean. In Bali, they found the time to slow down, reconnect with themselves, and create memories they still carry in their hearts today.',
   },
   {
-    id: 4, name: 'Filippine', country: { it: 'Filippine', en: 'Philippines' },
+    id: 4, name: 'Palawan', country: { it: 'Filippine', en: 'Philippines' },
     lng: 119.41, lat: 11.20,
     photo: '/photos/stop-filippine.jpeg',
     it: 'Tra natura selvaggia e acque cristalline, il loro amore ha potuto respirare libero. Tra avventure e meraviglia, hanno celebrato la vita — e il compleanno di Antonio — in una suite sospesa tra sogno e realtà. Un viaggio che li ha uniti ancora di più, rendendo ogni istante indimenticabile.',
@@ -44,7 +44,7 @@ export const STOPS = [
   {
     id: 7, name: 'Parigi', country: { it: 'Francia', en: 'France' },
     lng: 2.35, lat: 48.86,
-    photo: '/photos/stop-parigi.jpeg',
+    photo: '/photos/stop-parigi.jpeg', photoPosition: 'center bottom',
     it: 'La città dell\'amore. Per Roberto era sempre stato un sogno: vivere Parigi con la persona che amava. Antonio ha costruito tutto in silenzio, passo dopo passo. Solo in aeroporto Roberto ha scoperto la destinazione — un biglietto bruciato, poche parole: «tout commence à…». E da lì, la magia: un sogno che ha preso vita tra le luci di Disneyland.',
     en: 'The city of love. For Roberto, it had always been a dream: to experience Paris with the person he loved. Antonio built everything in silence, step by step. Only at the airport did Roberto discover the destination — a burned note, just a few words: \'tout commence à…\'. And from there, magic: a dream coming to life among the lights of Disneyland.',
   },
@@ -65,7 +65,7 @@ export const STOPS = [
   {
     id: 10, name: 'Londra', country: { it: 'Inghilterra', en: 'England' },
     lng: -0.13, lat: 51.51,
-    photo: '/photos/stop-londra.jpeg',
+    photo: '/photos/stop-londra.jpeg', photoPosition: 'center top',
     it: 'La città della nostra prima casa insieme. Qui il nostro amore è cresciuto, giorno dopo giorno, tra vita quotidiana e sogni condivisi. È qui che abbiamo scelto di restare insieme, ovunque, e poi, poco dopo, per sempre.',
     en: 'The city of our first home together. Here our love grew, day by day, through everyday life and shared dreams. It is here that we chose to stay together, anywhere, and soon after, forever.',
   },

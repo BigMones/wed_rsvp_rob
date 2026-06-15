@@ -11,12 +11,16 @@ export default function Location() {
     <section className="section location" id="location">
       <div className="wrap loc-grid">
         <div className="loc-map reveal" ref={mapRef}>
-          <div className="water" />
+          <iframe
+            title="Punta Romana"
+            src="https://maps.google.com/maps?q=Punta+Romana,+Via+Spiaggia+Romana,+Bacoli,+NA&z=15&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
           <div className="pinmark">
             <div className="head" />
             <div className="lbl">Punta Romana</div>
           </div>
-          <div className="ph-note">{t('mappa · placeholder', 'map · placeholder')}</div>
         </div>
         <div className="loc-info reveal d1" ref={infoRef}>
           <span className="eyebrow">{t('Come arrivare', 'Getting there')}</span>

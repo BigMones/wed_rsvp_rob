@@ -134,7 +134,7 @@ export default function Rsvp() {
                   <div className="v">20·09·26</div>
                 </div>
                 <div>
-                  <div className="l">{t('Imbarco', 'Boarding')}</div>
+                  <div className="l">{t('Inizia', 'Start')}</div>
                   <div className="v">11:30</div>
                 </div>
               </div>
