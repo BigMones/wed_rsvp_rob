@@ -8,7 +8,7 @@
   --paper-2: #ece1cd;
   --sand: #e6dac4;
   --beige: #d8c9ad;
-  --ink: #6e5a41;
+  --ink: #2b2620;
   --ink-soft: #5e564a;
   --ink-faint: #a99c84;
   --line: #cdbfa4;
@@ -338,7 +338,10 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .ro-row--full { grid-template-columns: 120px 1fr; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
 .ro-lab { font-family: var(--mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); }
 .ro-val { font-family: var(--class); font-size: 15px; color: var(--ink); line-height: 1.45; }
-.ro-iban { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; color: var(--ink); word-break: break-all; }
+.ro-iban { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; color: var(--ink); word-break: break-all; display: inline-flex; align-items: center; gap: 8px; }
+.ro-copy { display: inline-flex; align-items: center; justify-content: center; background: none; border: 1px solid var(--sage); border-radius: 5px; padding: 3px 5px; cursor: pointer; color: var(--sage-deep); opacity: .7; transition: opacity .15s, color .15s; flex-shrink: 0; }
+.ro-copy:hover { opacity: 1; }
+.ro-copy.copied { color: var(--sage-deep); opacity: 1; }
 .reg-whatsapp { margin-top: 28px; font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); }
 .reg-whatsapp a { color: var(--sage-deep); text-decoration: none; }
 
