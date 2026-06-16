@@ -31,7 +31,6 @@ export default function Details() {
             </div>
             <div className="small">
               {t('Cerimonia ore 11:30', 'Ceremony 11:30')}<br />
-              {t('Ricevimento ore 13:30', 'Reception 13:30')}
             </div>
           </div>
           <div className="det-card">
