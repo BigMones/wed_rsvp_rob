@@ -7,7 +7,7 @@ export default function Rsvp() {
   const { lang } = useLang()
   const t = (it, en) => lang === 'it' ? it : en
   const [sent, setSent] = useState(false)
-  const [success, setSuccess] = useState({ icon: '✈', iconColor: '', title: '', text: '' })
+  const [success, setSuccess] = useState({ icon: '✈', title: '', text: '' })
   const [sentDetails, setSentDetails] = useState(null)
   const headRef = useReveal()
   const leadRef = useReveal()
@@ -29,7 +29,6 @@ export default function Rsvp() {
     setSentDetails({ name, guests, bambini, going: yes })
     setSuccess({
       icon: yes ? '✈︎' : '☁︎',
-      iconColor: yes ? '#2fff9e' : '#d95c5c',
       title: yes
         ? t('Sei a bordo!', "You're on board!")
         : t('Ci mancherai', "We'll miss you"),
@@ -148,7 +147,7 @@ export default function Rsvp() {
               <img src="/roos-airlines.jpeg" alt="Roos Airlines" />
             </div>
             <div className="ps-divider" />
-            <div className="ps-icon" style={success.iconColor ? { color: success.iconColor } : undefined}>{success.icon}</div>
+            <div className="ps-icon">{success.icon}</div>
             <h3>{success.title}</h3>
             <p>{success.text}</p>
             {sentDetails && (
