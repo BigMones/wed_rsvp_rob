@@ -37,11 +37,11 @@ export default function AtlasStage({ stops, active, mode, onSelect, onModeChange
           key={stop.id}
           ref={el => pinRefs.current[i] = el}
           className={`pin${stop.final ? ' final' : ''}`}
-          aria-label={stop.name}
+          aria-label={stop.name[lang]}
           onClick={() => onSelect(i)}
         >
           <span className="dot">{stop.final ? '★' : stop.id}</span>
-          <span className="nm">{stop.name}</span>
+          <span className="nm">{stop.name[lang]}</span>
         </button>
       ))}
 
@@ -49,7 +49,7 @@ export default function AtlasStage({ stops, active, mode, onSelect, onModeChange
       <div className="globe-label">
         <b>{String(stops[active].id).padStart(2, '0')}</b>
         <span className="gl-sep">·</span>
-        {stops[active].name}
+        {stops[active].name[lang]}
       </div>
     </div>
   )
