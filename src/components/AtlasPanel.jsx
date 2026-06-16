@@ -9,7 +9,7 @@ export default function AtlasPanel({ stops, active }) {
     <div className="atlas-panel" id="atlasPanel">
       <div className="ap-photo">
         {s.photo && (
-          <img src={s.photo} alt={s.name} key={s.photo} style={s.photoPosition ? { objectPosition: s.photoPosition } : undefined} />
+          <img src={s.photo} alt={s.name[lang]} key={s.photo} style={s.photoPosition ? { objectPosition: s.photoPosition } : undefined} />
         )}
         <div className="stamp">
           {s.country[lang]}<br />{String(s.id).padStart(2, '0')}
@@ -21,7 +21,7 @@ export default function AtlasPanel({ stops, active }) {
         </span>
         <span className="ap-country">{s.country[lang]}</span>
       </div>
-      <h3 className="ap-name">{s.name}</h3>
+      <h3 className="ap-name">{s.name[lang]}</h3>
       <p className="ap-text">{s[lang]}</p>
     </div>
   )
