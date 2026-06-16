@@ -70,7 +70,7 @@ export const STOPS = [
     en: 'The city of our first home together. Here our love grew, day by day, through everyday life and shared dreams. It is here that we chose to stay together, anywhere, and soon after, forever.',
   },
   {
-    id: 11, name: {it:'Napoli',en:'Naples'}, country: { it: 'Italia', en: 'Italy' },
+    id: 11, name: {it:'Napoli',en:'Napoli'}, country: { it: 'Italia', en: 'Italy' },
     lng: 14.27, lat: 40.85, final: true,
     photo: '/photos/stop-napoli.jpeg',
     it: 'Dove tutto è iniziato. La città in cui ci siamo conosciuti, ci siamo innamorati e abbiamo scelto di cambiare le nostre vite per sempre. È da qui che è partito il nostro viaggio, ed è qui che ci ha sempre riportato — il luogo in cui abbiamo scelto di dirci il nostro sì.',
