@@ -35,7 +35,7 @@ export default function Registry() {
             </div>
             <div className="ro-row">
               <span className="ro-lab">IBAN {t('(IT)', '(IT)')}</span>
-              <span className="ro-iban">IT55 M020 0803 4710 0042 0142 239</span>
+              <span className="ro-iban">IT55M0200803471000420142239</span>
             </div>
             <div className="ro-row">
               <span className="ro-lab">PAY ID {t('(AU)', '(AU)')}</span>
@@ -62,7 +62,7 @@ export default function Registry() {
             </div>
             <div className="ro-row">
               <span className="ro-lab">IBAN</span>
-              <span className="ro-iban">IT76 F030 6976 2421 0000 0006 564</span>
+              <span className="ro-iban">IT76F0306976242100000006564</span>
             </div>
             <div className="ro-row ro-row--full">
               <span className="ro-lab">WhatsApp</span>
